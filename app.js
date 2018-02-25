@@ -17,7 +17,7 @@ const authRoutes = require ("./routes/auth.js")
 const index = require('./routes/index');
 const profile = require ("./routes/profile.js")
 
-mongoose.connect('mongodb://localhost/food-porn')
+mongoose.connect('mongodb://localhost/handyfurniture')
   .then(console.log(`connected!!`));
 
 const app = express();
