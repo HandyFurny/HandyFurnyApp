@@ -1,3 +1,5 @@
+
+//const config = require ("./config")
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -6,9 +8,17 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
+const session      = require('express-session');
+const MongoStore   = require('connect-mongo')(session);
+const flash        = require("connect-flash");
 
+//Aqui declaramos las rutas para ser utilizadas más abajo
+const authRoutes = require ("./routes/auth.js")
+const index = require('./routes/index');
+const profile = require ("./routes/profile.js")
 
-mongoose.connect('mongodb://localhost/food-porn');
+mongoose.connect('mongodb://localhost/food-porn')
+  .then(console.log(`connected!!`));
 
 const app = express();
 
@@ -27,9 +37,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+app.use(flash());
+//Requiero Bootstrap y Jquery de Node_Modules
+app.use('/dist/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/dist/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 
-const index = require('./routes/index');
+
+//session meddleware
+app.use(session({
+  secret: 'ironfundingdev',
+  resave: true,
+  saveUninitialized: true,
+  //store: new MongoStore( { mongooseConnection: mongoose.connection }) --> Si descomento las seciones aparecen en la base de datos
+}));
+
+//Tengo una carpeta de configuracion de PASSPORT
+require ("./config/passport")(app)
+
+
+//Usamos rutas
 app.use('/', index);
+app.use('/',authRoutes)
+app.use('/user',profile)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
