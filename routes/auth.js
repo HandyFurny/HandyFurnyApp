@@ -7,6 +7,12 @@ const bcrypt = require("bcrypt");
 const salt = bcrypt.genSaltSync(10);
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
+ //facebook login
+ router.get("/auth/facebook", passport.authenticate("facebook", {scope: 'email'}));
+ router.get("/auth/facebook/callback", passport.authenticate("facebook", {
+     successRedirect: "/user",
+     failureRedirect: "/login"
+ }));
 
 //login
 router.get("/login", (req,res)=>{
@@ -19,13 +25,7 @@ router.get("/login", (req,res)=>{
      failureFlash: true,
      passReqToCallback: true
  }));
- 
- //logout
- router.get("/logout", (req,res)=>{
-    req.logout();
-    res.redirect("/");
- });
- 
+
  
  router.get("/signup", (req,res, next)=>{
      res.render("authentication/signup");
@@ -36,10 +36,9 @@ router.get("/login", (req,res)=>{
     var email = req.body.email;
     var password = req.body.password;
 
-         console.log("entra al post")
      User.findOne({username}, "username", (err, user)=>{
         if (user !== null){
-            console.log("entra al find")
+  
             res.render("authentication/signup", {message:"The username already exists"});
             return;
         }
@@ -51,14 +50,22 @@ router.get("/login", (req,res)=>{
             email,                
            password:hashPass
         });
-        console.log(newUser)
+     
         newUser.save(err=>{
-            console.log("salva")
+       
             if (err) return res.render("authentication/signup", { message: "Something went wrong" });
              res.redirect("/user");
         });
  
      });
  });
+
+ 
+ //logout
+
+    router.get("/logout", (req,res)=>{
+        req.logout();
+        res.redirect("/");
+    });
 
 module.exports = router;
