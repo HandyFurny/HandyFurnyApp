@@ -10,7 +10,7 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
  //facebook login
  router.get("/auth/facebook", passport.authenticate("facebook", {scope: 'email'}));
  router.get("/auth/facebook/callback", passport.authenticate("facebook", {
-     successRedirect: "/user",
+     successRedirect: "/catalog",
      failureRedirect: "/login"
  }));
 
@@ -20,7 +20,7 @@ router.get("/login", (req,res)=>{
  });
  
  router.post("/login", passport.authenticate("local", {
-     successRedirect: "/user",
+     successRedirect: "/catalog",
      failureRedirect: "/login",
      failureFlash: true,
      passReqToCallback: true
@@ -54,7 +54,7 @@ router.get("/login", (req,res)=>{
         newUser.save(err=>{
        
             if (err) return res.render("authentication/signup", { message: "Something went wrong" });
-             res.redirect("/user");
+             res.redirect("/catalog");
         });
  
      });
