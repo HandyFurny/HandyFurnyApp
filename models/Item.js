@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
-const TYPES    = require('./Item_types');
+const TYPES    = require('./item_types');
 
 const itemSchema = new Schema({
   _creator      : { type: Schema.Types.ObjectId, ref: 'User', required: true  },

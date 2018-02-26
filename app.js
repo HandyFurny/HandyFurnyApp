@@ -14,8 +14,9 @@ const flash        = require("connect-flash");
 
 //Aqui declaramos las rutas para ser utilizadas más abajo
 const authRoutes = require ("./routes/auth.js")
-const catalog    = require('./routes/catalog');
+const item    = require('./routes/item.js');
 const profile    = require ("./routes/profile.js")
+const chat       = require ("./routes/chat.js")
 
 mongoose.connect('mongodb://localhost/handyfurniture')
   .then(console.log(`connected!!`));
@@ -56,9 +57,9 @@ require ("./config/passport")(app)
 
 
 //Usamos rutas
-app.use('/', catalog);
 app.use('/',authRoutes)
 app.use('/user',profile)
+app.use('/catalog', item)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
