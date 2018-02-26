@@ -55,11 +55,26 @@ app.use(session({
 //Tengo una carpeta de configuracion de PASSPORT
 require ("./config/passport")(app)
 
+/*************************** CHAT ****************************************** */
+
+// var http = require('http').Server(app);
+
+// // app.get('/', function(req, res){
+// //   res.send('<h1>Hello world</h1>');
+// // });
+
+// http.listen(8000, function(){
+//   console.log('listening on *:8000');
+// });
+
+/********************************************************************** */
+
 
 //Usamos rutas
 app.use('/',authRoutes)
 app.use('/user',profile)
 app.use('/catalog', item)
+app.use('/chat',chat);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
