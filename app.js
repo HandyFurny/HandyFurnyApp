@@ -57,7 +57,7 @@ app.use(session({
 //Tengo una carpeta de configuracion de PASSPORT
 require ("./config/passport")(app)
 // tengo una carpeta de configuracion de  SOCKETIO
-
+require('./config/socketio.js')(app);
 
 
 //Usamos rutas
