@@ -20,7 +20,7 @@ app.set('port', port);
 //var server = require('../app').server;
 //la linea siguiente es la que estaba en el codigo, la segunda la que ponia con andrei
 var server = http.createServer(app);
-//require('../config/socketio.js')(server);
+require('../config/socketio.js')(server);
 
 /**
  * Listen on provided port, on all network interfaces.

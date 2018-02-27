@@ -49,7 +49,9 @@ app.use(layouts);
 app.use(flash());
 //Requiero Bootstrap y Jquery de Node_Modules
 app.use('/dist/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-app.use('/dist/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use('/dist/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')))
+app.use('/dist/socket', express.static(path.join(__dirname, 'node_modules/socket.io/lib')));
+
 
 
 //session meddleware
