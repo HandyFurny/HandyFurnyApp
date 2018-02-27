@@ -103,3 +103,46 @@ footer{
 footer p{
   text-align: center;
 }
+.catalog-map {
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  align-items: center;
+  justify-content: center;
+  
+}
+.catalog-map section:nth-child(1){
+  width: 100vw;
+  border: #EDEFF1 solid 2px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* map */
+#map {
+  height: 500px;
+  width: 50vw;
+  
+ }
+
+ .nav-map{
+   width: 700px;
+   text-align: center;
+   
+   /* border-radius: 25px; */
+ }
+
+ .nav-map form {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+ }
+
+ .nav-map div, select, input, button {
+   height: 25px;
+ }
