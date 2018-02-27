@@ -6,7 +6,6 @@ const User    = require ('../models/User.js');
 const upload  = multer  ({  dest: '/public/uploads'});
 const { ensureLoggedIn }  = require('connect-ensure-login');
 const router  = express.Router();
-const TYPES   = require ('../models/item_types');
 
 router.get('/new', (req, res, next) =>{
   res.render('item/new', {types:  TYPES});
