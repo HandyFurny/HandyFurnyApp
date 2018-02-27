@@ -1,3 +1,22 @@
 <!-- Renderiza el listado de los items que vendo con boton de chat_sell, edit y  delete 
 
 Y el listado de los items que estoy comprando con boton de chat_buy y delete-->
+
+
+<div class="container product-container">
+    <div>
+      <div>
+        By: <strong><%= product._creator.username %></strong>
+      </div>
+      <div>
+        <h1><%= product.title %></h1>
+        <h2 class="product-category"><%= product.category %></h2>
+        <p class="product-description"><%= product.description %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <img class="product-image" src="<%= product.itemPic %>">
+      </div>
+</div>
+  

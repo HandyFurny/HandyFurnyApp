@@ -1,10 +1,43 @@
-<!-- Render link to my profile 
-link to catalog_list
-link to item/new
-and search bar with autocomplete 
+<nav>
+    <div>
+        <h3>Handy Furniture</h3>
+    </div>
+    <div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/catalog/new">New Item</a></li>
+            <li><a href="/user/<%=user._id%>">user</a> </li>
+        </ul>
+    </div>
+</nav>
+<div class="catalog-map">
+    <section>
+        <div>
+            <h1>Discover the people who are selling furniture</h1>
+        </div>
+        <div class="nav-map">
+            <form action="" method="post">
+                <div><i class="far fa-list-alt"></i></div>
+                <select>
+                <% types.forEach((category) => { %>
+                    <option type="text" value="<%= category %>"><%= category %></option>
+                <%})%>
+                </select>
+                <input id="search-box" type="text" name="where">
+                <button><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </section>
+    <section>
+        <div id="map"></div>
+    </section>
+</div>
 
-y carrusel yeeeei :) -->
-<h1>catalogo</h1>
-<a href="/logout">Log Out</a>
-<a href="/catalog/new">New Item</a>
-<a href="/user/<%=user._id%>">New Item</a> 
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB141u84aG6yCZFhfNsd4CWj7lKdHmj8-k&libraries=places">
+</script>
+<script type="text/javascript" src="javascripts/map/autocomplete.js"></script>
+<script type="text/javascript" src="javascripts/map/map.js"></script>
+
