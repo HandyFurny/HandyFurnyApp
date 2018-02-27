@@ -11,7 +11,7 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
  router.get("/auth/facebook", passport.authenticate("facebook", {scope: 'email'}));
  router.get("/auth/facebook/callback", passport.authenticate("facebook", {
      successRedirect: "/catalog",
-     failureRedirect: "/login"
+     failureRedirect: "/"
  }));
 
 //login
