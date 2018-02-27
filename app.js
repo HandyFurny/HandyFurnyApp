@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Handy Furny';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -56,20 +56,8 @@ app.use(session({
 
 //Tengo una carpeta de configuracion de PASSPORT
 require ("./config/passport")(app)
+// tengo una carpeta de configuracion de  SOCKETIO
 
-/*************************** CHAT ****************************************** */
-
-// var http = require('http').Server(app);
-
-// // app.get('/', function(req, res){
-// //   res.send('<h1>Hello world</h1>');
-// // });
-
-// http.listen(8000, function(){
-//   console.log('listening on *:8000');
-// });
-
-/********************************************************************** */
 
 
 //Usamos rutas

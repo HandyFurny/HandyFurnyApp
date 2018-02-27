@@ -7,9 +7,10 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
  //
 /* GET home page. */
-router.get('/catalog/chat', (req, res, next) => {
-    res.render('/item/chat');
+router.get('/', (req, res, next) => {
+    res.render('item/chat');   
   });
+
 
 
 
