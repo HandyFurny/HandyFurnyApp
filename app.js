@@ -15,7 +15,7 @@ const flash        = require("connect-flash");
 //Aqui declaramos las rutas para ser utilizadas más abajo
 const index        = require ("./routes/index.js")
 const authRoutes   = require ("./routes/auth.js")
-const item         = require('./routes/item.js');
+const item         = require ('./routes/item.js');
 const profile      = require ("./routes/profile.js")
 const chat         = require ("./routes/chat.js")
 
