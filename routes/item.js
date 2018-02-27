@@ -3,7 +3,7 @@ const multer  = require ('multer');
 const Item    = require ('../models/Item');
 const TYPES   = require ('../models/item_types');
 const User    = require ('../models/User.js');
-const upload  = multer  ({  dest: '/public/uploads'});
+const upload  = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }  = require('connect-ensure-login');
 const router  = express.Router();
 
