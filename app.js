@@ -23,14 +23,6 @@ mongoose.connect('mongodb://localhost/handyfurniture')
 
 const app = express();
 
-// // SOCKET IO
-// var server = require('http').Server(app);
-// var io = require('socket.io')(server)
-// app.use(function(req, res, next){
-//   res.io = io;
-//   next();
-// });
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -65,8 +57,8 @@ app.use(session({
 
 //Tengo una carpeta de configuracion de PASSPORT
 require ("./config/passport")(app)
-// tengo una carpeta de configuracion de  SOCKETIO
-//require('./config/socketio.js')(app);
+// no tengo llamada de carpeta de configuracion de  SOCKETIO sino que esta en bin/www porque si no no se conectaba
+
 
 
 //Usamos rutas
