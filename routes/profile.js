@@ -1,19 +1,20 @@
-const express               = require('express');
-const router                = express.Router();
-const User                  = require('../models/User')
+const express               = require ('express');
+const User                  = require ('../models/User')
 const multer                = require ('multer');
 const upload                = multer  ({  dest: './public/uploads'});
-const { ensureLoggedIn }    = require('connect-ensure-login');
-const bcrypt = require('bcrypt');
-const salt = bcrypt.genSaltSync(10);
+const { ensureLoggedIn }    = require ('connect-ensure-login');
+const bcrypt                = require ('bcrypt');
+const salt                  = bcrypt.genSaltSync(10);
+const router                = express.Router();
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id, (err, user) => {
-    if (err)       { return next(err) }
+    if (err)    { return next(err) }
     if (!user)  { return next(new Error("404")) }
     return res.render('user/edit', { user })
   });
 });
+
 router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
   User.findById(req.params.id)
     .then(user => {
@@ -34,7 +35,6 @@ router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, ne
       coordinates : [req.body.latitud, req.body.longitud]
     }
   };
-
   User.findByIdAndUpdate(req.params.id, updates, (err, user) => {
     if (err) {
       return res.redirect('/user/'+req.params.id+'/edit')

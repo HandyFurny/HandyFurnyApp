@@ -9,7 +9,7 @@ const userSchema = new Schema({
   //social login con passport
   facebookID  : { type: String},
   googleID    : { type: String},
-  location: {type: {type: String, default: "type your adress"},coordinates:[Number], default:[]}
+  location    : {type: {type: String, default: "type your adress"},coordinates:[Number], default:[]}
 });
 
 userSchema.index({ adress: '2dsphere' });
