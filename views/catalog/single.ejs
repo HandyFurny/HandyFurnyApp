@@ -1,0 +1,23 @@
+<a class="home-button" href="/catalog">Home</a>
+<div class="creator-info">
+    <h2><%= item._creator.username %></h2>
+    <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"></span>
+    </div>
+<h3><%= item.title %></h3>
+<div class="container item-container">
+    <div>
+      <div>
+        <img class="item-image" src="<%= item.itemPic %>">
+      </div>
+      <div>
+        <h2>$ <%= item.price %></h2>
+        <span class="item-category"><%= item.category %></span>
+        <p> Description: <br> <%= item.description%></p>
+      </div>
+      <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
+      <a class="chat-button" href="/chat">Chat</a>
+      <% if( userId == item._creator._id){%>  
+      <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
+      <% } %>
+    </div>
+</div>

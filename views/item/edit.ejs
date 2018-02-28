@@ -1,0 +1,30 @@
+<div class="new-item-container">
+  <h2>Edit your furny info</h2>
+    <form action="/catalog/<%= item._id %>" method="post"  enctype="multipart/form-data">
+      <div>
+        <label>Category</label><br>
+        <select name="category" id="category">
+          <% types.forEach((category) => { %>
+            <option type="text" value="<%= category %>"><%= category %></option>
+          <%  }) %>
+        </select>
+      </div>
+      <div>
+        <label>Title</label>
+        <input type="text" name="title" required>
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea name="description" required></textarea>
+      </div>
+      <div>
+        <label>Price</label>
+        <input type="number" name="price" required>
+      </div>
+      <h3>Change photo of your furny!</h3>
+        <input type="file" name="itemPic">
+      <div>
+        <button type="submit">Upload Product</button>
+      </div>
+    </form>
+</div>

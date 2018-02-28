@@ -1,22 +1,26 @@
 <!-- Renderiza el listado de los items que vendo con boton de chat_sell, edit y  delete 
 
 Y el listado de los items que estoy comprando con boton de chat_buy y delete-->
+<a class="home-button" href="/catalog">Home</a>
+<h1>All Products</h1>
+<% items.forEach((item) => { %>
 
-
-<div class="container product-container">
+<div class="container item-container">
     <div>
       <div>
-        By: <strong><%= product._creator.username %></strong>
+        <img class="item-image" src="<%= item.itemPic %>">
       </div>
       <div>
-        <h1><%= product.title %></h1>
-        <h2 class="product-category"><%= product.category %></h2>
-        <p class="product-description"><%= product.description %></p>
+        <h2>$ <%= item.price %></h2>
+        <a class="title" href="/catalog/<%= item._id %>">
+        <strong><%= item.title %></strong>
+        </a>
+        <span class="item-category"><%= item.category %></span>
+        <div class="creator-info">
+        <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"><strong><%= item._creator.username %></strong></span>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div>
-        <img class="product-image" src="<%= product.itemPic %>">
-      </div>
+    <% }) %>
 </div>
   
