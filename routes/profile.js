@@ -1,11 +1,13 @@
-const express               = require ('express');
-const User                  = require ('../models/User')
+const express               = require('express');
+const router                = express.Router();
+const User                  = require('../models/User')
+const Item                  = require('../models/Item')
 const multer                = require ('multer');
 const upload                = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }    = require ('connect-ensure-login');
 const bcrypt                = require ('bcrypt');
 const salt                  = bcrypt.genSaltSync(10);
-const router                = express.Router();
+
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id, (err, user) => {
@@ -16,13 +18,19 @@ router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
 });
 
 router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
-  User.findById(req.params.id)
-    .then(user => {
-      res.render("user/profile", { user})
-      console.log(user);
-    })
-    .catch(err => res.render('error'))
+
+    User.findById(req.params.id)
+      .then(user => {
+        Item.find({_creator:req.params.id})
+          .then(items => {
+            res.render("user/profile",{user,items})
+          })
+          .catch(err => console.log(err))
+      })
+      .catch(err => console.log(err))
+    
 });
+
 
 router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, next) => {
   const updates = {
