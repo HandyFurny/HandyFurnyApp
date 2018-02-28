@@ -31,28 +31,22 @@ router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
 router.get('/list', (req, res, next) => {
   Item.find({})
     .populate("_creator")
-    .then(items =>{
-      res.render('catalog/list', {items})
-    })
-    .catch  (err => res.render('error'))
+    .then(items =>  res.render('catalog/list', {items}))
+    .catch(err => res.render('error'))
 });
 
 router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
     userId = req.user._id
     Item.findById(req.params.id)
       .populate("_creator")
-      .then(result => {
-        res.render("catalog/single", { userId, item: result})
-      })
+      .then(result => res.render("catalog/single", { userId, item: result}))
       .catch(err => res.render('error'))
 });
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
-    Item.findById(req.params.id, (err, item) => {
-      if (err)       { return next(err) }
-      if (!item)  { return next(new Error("404")) }
-      return res.render('item/edit', { item, types: TYPES })
-    });
+    Item.findById(req.params.id)
+    .then(item => res.render('item/edit', { item, types: TYPES }))
+    .catch(err => res.render('error'))
 });
 
 router.post('/:id', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, next) => {
@@ -64,37 +58,25 @@ router.post('/:id', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
       views         : 0,
       itemPic       : `/uploads/${req.file.filename}`
     };
-
-    Item.findByIdAndUpdate(req.params.id, updates, (err, item) => {
-      if (err) {
-        return res.redirect('/catalog/'+req.params.id+'/edit')
-      }
-      if (!item) {
-        return next(new Error('404'));
-      }
-      return res.redirect('/catalog/'+req.params.id);
-    });
+    Item.findByIdAndUpdate(req.params.id, updates)
+    .then(item => res.redirect('/catalog/'+req.params.id))
+    .catch(err => res.redirect('/catalog/'+req.params.id+'/edit'))
 });
 
 router.post('/:id/delete', (req, res, next) => {
   const id = req.params.id;
-
-  Item.findByIdAndRemove(id, (err, item) => {
-    if (err){ return next(err); }
-    return res.redirect('/catalog/list');
-  });
-
+  Item.findByIdAndRemove(id)
+  .then(item => res.redirect('/catalog/list'))
+  .catch(err => res.render('error'))
 });
 
 /* Catalog index*/
 router.get('/', ensureLoggedIn('/'), (req, res, next) => {
-  Item.find({}).sort({created_at: -1})
+  Item.find({})
+  .sort({created_at: -1})
   .populate("_creator")
-  .then(result => {
-    console.log("========>")
-    console.log(result)
-    res.render('catalog/index', {user:req.user, items:result, types:TYPES})
-  })
+  .then(result => res.render('catalog/index', {user:req.user, items:result, types:TYPES}))
+  .catch(err => res.render('error'))
 });
 
 module.exports = router;

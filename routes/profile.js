@@ -10,11 +10,9 @@ const salt                  = bcrypt.genSaltSync(10);
 
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
-  User.findById(req.params.id, (err, user) => {
-    if (err)    { return next(err) }
-    if (!user)  { return next(new Error("404")) }
-    return res.render('user/edit', { user })
-  });
+  User.findById(req.params.id)
+    .then(user => res.render('user/edit', { user }))
+    .catch(err => res.render('error'));
 });
 
 router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
@@ -22,15 +20,12 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
     User.findById(req.params.id)
       .then(user => {
         Item.find({_creator:req.params.id})
-          .then(items => {
-            res.render("user/profile",{user,items})
-          })
-          .catch(err => console.log(err))
+          .then(items => res.render("user/profile",{user,items}))
+          .catch(err => res.render('error'));
       })
-      .catch(err => console.log(err))
+      .catch(err => res.render('error'));
     
 });
-
 
 router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, next) => {
   const updates = {
@@ -43,27 +38,17 @@ router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, ne
       coordinates : [req.body.latitud, req.body.longitud]
     }
   };
-  User.findByIdAndUpdate(req.params.id, updates, (err, user) => {
-    if (err) {
-      return res.redirect('/user/'+req.params.id+'/edit')
-    }
-    if (!user) {
-      return next(new Error('404'));
-    }
-    return res.redirect('/user/'+req.params.id);
-  });
+  User.findByIdAndUpdate(req.params.id, updates)
+  .then(user => res.redirect('/user/'+req.params.id))
+  .catch(err => res.render('error'));
 });
 
 router.post('/:id/delete', (req, res, next) => {
 const id = req.params.id;
-
-User.findByIdAndRemove(id, (err, user) => {
-  if (err){ return next(err); }
-  return res.redirect('/');
+User.findByIdAndRemove(id)
+.then(user => res.redirect('/'))
+.catch(err => res.render('error'));
 });
 
-});
-
- 
-  module.exports = router;
+module.exports = router;
   
