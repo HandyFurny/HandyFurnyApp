@@ -85,7 +85,11 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
 
 /* Catalog index*/
 router.get('/', (req, res, next) => {
-  res.render('catalog/index', {user:req.user, types:TYPES})
+  Item.find({})
+  .populate("_creator")
+  .then(result => res.render('catalog/index', {user:req.user, items:result, types:TYPES}))
 });
+
+
 
 module.exports = router;

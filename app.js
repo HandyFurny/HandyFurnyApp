@@ -1,4 +1,3 @@
-
 //const config = require ("./config")
 const express      = require('express');
 const path         = require('path');
@@ -24,6 +23,14 @@ mongoose.connect('mongodb://localhost/handyfurniture')
 
 const app = express();
 
+// // SOCKET IO
+// var server = require('http').Server(app);
+// var io = require('socket.io')(server)
+// app.use(function(req, res, next){
+//   res.io = io;
+//   next();
+// });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -42,7 +49,9 @@ app.use(layouts);
 app.use(flash());
 //Requiero Bootstrap y Jquery de Node_Modules
 app.use('/dist/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-app.use('/dist/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+app.use('/dist/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')))
+app.use('/dist/socket', express.static(path.join(__dirname, 'node_modules/socket.io/lib')));
+
 
 
 //session meddleware
@@ -57,7 +66,7 @@ app.use(session({
 //Tengo una carpeta de configuracion de PASSPORT
 require ("./config/passport")(app)
 // tengo una carpeta de configuracion de  SOCKETIO
-require('./config/socketio.js')(app);
+//require('./config/socketio.js')(app);
 
 
 //Usamos rutas
