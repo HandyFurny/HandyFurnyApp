@@ -33,6 +33,7 @@ router.get('/list', (req, res, next) => {
   Item.find({})
     .populate("_creator")
     .then(items =>{
+      console.log(items)
       res.render('catalog/list', {items})
     })
     .catch  (err => res.render('error'))
