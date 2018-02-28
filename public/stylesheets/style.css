@@ -146,3 +146,8 @@ footer p{
  .nav-map div, select, input, button {
    height: 25px;
  }
+
+ .nav-map form input {
+   width: 300px;
+   margin-top: 20px; 
+ }
