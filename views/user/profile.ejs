@@ -1,2 +1,16 @@
-<h1>Profile</h1>
-<a href="/logout">Log Out</a>
+<a class="home-button" href="/catalog">Home</a>
+  <div class="creator-info">
+    <h2><%= user.username %></h2>
+    <img class="user-profile-pic" src="<%= user.profilePic %>">
+    <p><%= user.email%></p>
+    <p>Current direccion: [<%= user.location.coordinates %>]</p>
+  </div>
+  <div class="container user-container">
+    <div>
+      
+      <a class="edit-user-button" href="/user/<%= user._id %>/edit">Edit your profile</a>
+      <form action="/user/<%= user._id %>/delete" method="POST">
+        <button type="submit">Delete User</button>
+      </form>
+    </div>
+</div>

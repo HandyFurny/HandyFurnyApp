@@ -1,1 +1,33 @@
 <!-- Edit Form -->
+<h1>Profile</h1>
+<a href="/logout">Log Out</a>
+<div class="new-user-container">
+  <h2>Edit your furny info</h2>
+    <form action="/user/<%= user._id %>" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" value="<%= user.username %>">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" value="<%= user.email %>">
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password">
+      </div>
+        <input id="search-box-user" type="text" name="where" placeholder="Search by zone">
+        <input id="search-box-user-lat" type="text" name="latitud" readonly>
+        <input id="search-box-user-lng" type="text" name="longitud" readonly>
+      <h3>Change profile pic!</h3>
+        <input type="file" name="userPic" value="/images/profile.jpg">
+      <div>
+        <button type="submit">Upload Product</button>
+      </div>
+    </form>
+</div>
+<script
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB141u84aG6yCZFhfNsd4CWj7lKdHmj8-k&libraries=places">
+</script>
+
+<script type="text/javascript" src="/javascripts/user/autocomple.js"></script>
