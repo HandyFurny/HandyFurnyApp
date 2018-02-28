@@ -162,3 +162,20 @@ footer p{
  
    width: 200px;
  }
+
+ .new-items {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .new-items-card {
+  width: 300px;
+   border: #4A4A4A solid 2px;
+ }
+ .new-items-card img{
+  height: 200px;
+}

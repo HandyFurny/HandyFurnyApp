@@ -1,8 +1,9 @@
 <!-- Edit Form -->
 <h1>Profile</h1>
 <a href="/logout">Log Out</a>
+<a href="/catalog">Go Home</a>
 <div class="new-user-container">
-  <h2>Edit your furny info</h2>
+  <h2>Edit your profile info</h2>
     <form action="/user/<%= user._id %>" method="post" enctype="multipart/form-data">
       <div>
         <label for="username">Username</label>
@@ -16,13 +17,13 @@
         <label for="password">Password</label>
         <input type="password" name="password">
       </div>
-        <input id="search-box-user" type="text" name="where" placeholder="Search by zone">
+        <input id="search-box-user" type="text" name="where" placeholder="Search your location">
         <input id="search-box-user-lat" type="text" name="latitud" readonly>
         <input id="search-box-user-lng" type="text" name="longitud" readonly>
       <h3>Change profile pic!</h3>
         <input type="file" name="userPic" value="/images/profile.jpg">
       <div>
-        <button type="submit">Upload Product</button>
+        <button type="submit">Change Profile</button>
       </div>
     </form>
 </div>

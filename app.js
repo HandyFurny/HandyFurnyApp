@@ -12,11 +12,12 @@ const MongoStore   = require('connect-mongo')(session);
 const flash        = require("connect-flash");
 
 //Aqui declaramos las rutas para ser utilizadas más abajo
-const index        = require ("./routes/index.js")
-const authRoutes   = require ("./routes/auth.js")
-const item         = require ('./routes/item.js');
-const profile      = require ("./routes/profile.js")
-const chat         = require ("./routes/chat.js")
+const index        = require ("./routes/index.js");
+const authRoutes   = require ("./routes/auth.js");
+const item         = require ("./routes/item.js");
+const profile      = require ("./routes/profile.js");
+const chat         = require ("./routes/chat.js");
+const review       = require ("./routes/review.js");
 
 mongoose.connect('mongodb://localhost/handyfurniture')
   .then(console.log(`connected!!`));
@@ -62,11 +63,12 @@ require ("./config/passport")(app)
 
 
 //Usamos rutas
-app.use('/', index)
-app.use('/', authRoutes)
-app.use('/user', profile)
-app.use('/catalog', item)
+app.use('/', index);
+app.use('/', authRoutes);
+app.use('/user', profile);
+app.use('/catalog', item);
 app.use('/chat',chat);
+app.use('/review', review);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

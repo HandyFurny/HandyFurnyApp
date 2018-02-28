@@ -1,4 +1,5 @@
 <a class="home-button" href="/catalog">Home</a>
+<a class="home-button" href="/catalog/list">All Products</a>
   <div class="creator-info">
     <h2><%= user.username %></h2>
     <img class="user-profile-pic" src="<%= user.profilePic %>">
@@ -12,5 +13,11 @@
       <form action="/user/<%= user._id %>/delete" method="POST">
         <button type="submit">Delete User</button>
       </form>
+    </div>
+</div>
+
+<div class="sell-buy-mylist">
+    <div>
+      <h3>I'm selling: </h3>
     </div>
 </div>

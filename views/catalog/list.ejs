@@ -11,13 +11,18 @@ Y el listado de los items que estoy comprando con boton de chat_buy y delete-->
         <img class="item-image" src="<%= item.itemPic %>">
       </div>
       <div>
-        <h2>$ <%= item.price %></h2>
+        <h2>$ <%= item.price %>.00</h2>
         <a class="title" href="/catalog/<%= item._id %>">
         <strong><%= item.title %></strong>
         </a>
         <span class="item-category"><%= item.category %></span>
         <div class="creator-info">
-        <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"><strong><%= item._creator.username %></strong></span>
+        <span>
+          <img class="user-profile-pic" src="<%= item._creator.profilePic %>">
+          <a class="user-profile" href="/user/<%=item._creator._id%>">
+          <strong><%= item._creator.username %></strong>
+          </a>
+        </span>
         </div>
       </div>
     </div>
