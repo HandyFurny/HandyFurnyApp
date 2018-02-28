@@ -16,6 +16,9 @@
       </div>
       <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
       <a class="chat-button" href="/chat">Chat</a>
+      <form action="/catalog/<%= item._id %>/delete" method="POST">
+        <button type="submit">Delete Product</button>
+      </form>
       <% if( userId == item._creator._id){%>  
       <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
       <% } %>

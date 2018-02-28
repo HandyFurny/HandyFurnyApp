@@ -50,38 +50,44 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
       .catch(err => res.render('error'))
   });
 
-// router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
-//     Item.findById(req.params.id, (err, item) => {
-//       if (err)       { return next(err) }
-//       if (!item)  { return next(new Error("404")) }
-//       return res.render('item/edit', { item, types: TYPES })
-//     });
-//   });
+router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
+    Item.findById(req.params.id, (err, item) => {
+      if (err)       { return next(err) }
+      if (!item)  { return next(new Error("404")) }
+      return res.render('item/edit', { item, types: TYPES })
+    });
+  });
 
-// router.post('/:id/edit', ensureLoggedIn('/'), (req, res, next) => {
-//     const updates = {
-//       title         : req.body.title,
-//       description   : req.body.description,
-//       category      : req.body.category,
-//       price         : req.body.price,
-//       views         : 0,
-//       itemPic       : `/uploads/${req.file.filename}`
-//     };
+router.post('/:id', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, next) => {
+    const updates = {
+      title         : req.body.title,
+      description   : req.body.description,
+      category      : req.body.category,
+      price         : req.body.price,
+      views         : 0,
+      itemPic       : `/uploads/${req.file.filename}`
+    };
 
-//     Item.findByIdAndUpdate(req.params.id, updates, (err, item) => {
-//       if (err) {
-//         return res.render('item/edit', {
-//           item,
-//           errors: item.errors
-//         });
-//         console.log(item)
-//       }
-//       if (!item) {
-//         return next(new Error('404'));
-//       }
-//       return res.redirect(`/${item._id}`);
-//     });
-//   });
+    Item.findByIdAndUpdate(req.params.id, updates, (err, item) => {
+      if (err) {
+        return res.redirect('/catalog/'+req.params.id+'/edit')
+      }
+      if (!item) {
+        return next(new Error('404'));
+      }
+      return res.redirect('/catalog/'+req.params.id);
+    });
+  });
+
+router.post('/:id/delete', (req, res, next) => {
+  const id = req.params.id;
+
+  Item.findByIdAndRemove(id, (err, item) => {
+    if (err){ return next(err); }
+    return res.redirect('/catalog/list');
+  });
+
+});
 
 /* Catalog index*/
 router.get('/', (req, res, next) => {
