@@ -1,30 +1,36 @@
 
 
 <a class="home-button" href="/catalog">Home</a>
+<a class="home-button" href="/catalog/list">All Products</a>
+
 <div class="creator-info">
-    <h2><%= item._creator.username %></h2>
-    <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"></span>
-    </div>
-<h3><%= item.title %></h3>
-<div class="container item-container">
+  <a id="user-profile" href="/user/<%=item._creator._id%>">
+    <h3><%= item._creator.username %></h3>
+  </a>
+  <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"></span>
+</div>
+  
+<div class="item-container">
+  <h3><%= item.title %></h3>
+  <div>
     <div>
-      <div>
-        <img class="item-image" src="<%= item.itemPic %>">
-      </div>
-      <div>
-        <h2>$ <%= item.price %></h2>
-        <span class="item-category"><%= item.category %></span>
-        <p> Description: <br> <%= item.description%></p>
-      </div>
-      <a class="chat-button" href="/chat/<%=item._creator._id%>&<%=item._id%>">Chat</a>
-      <form action="/catalog/<%= item._id %>/delete" method="POST">
-        <button type="submit">Delete Product</button>
-      </form>
-     
-      <% if (toString(userId) === toString(item._creator._id)) {  %>  
-      <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
-      <% } %>
+      <img class="item-image" src="<%= item.itemPic %>">
     </div>
+    <div>
+      <h2>$ <%= item.price %>.00</h2>
+      <span class="item-category"><%= item.category %></span>
+      <p> Description: <br> <%= item.description%></p>
+      <!-- Contador para views, al hacer clic en el nombre del item debe aumentar uno -->
+      <p> Views: <br> <%= item.views %></p>
+    </div>
+    <a class="chat-button" href="/chat/<%=item._creator._id%>&<%=item._id%>">Chat</a>
+    <form action="/catalog/<%= item._id %>/delete" method="POST">
+      <button type="submit">Delete Product</button>
+    </form>
+    <% if (toString(userId) === toString(item._creator._id)) {  %>  
+    <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
+    <% } %>
+  </div>
 </div>
 
 <div id="fb-root"></div>
