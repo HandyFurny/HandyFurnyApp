@@ -5,7 +5,7 @@ const userSchema = new Schema({
   email       : { type: String},
   username    : { type: String ,trim:true},
   password    : { type: String},
-  profilePic  : { type: String, default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250" },
+  profilePic  : { type: String, default: "/images/profile.jpg" },
   //social login con passport
   facebookID  : { type: String},
   googleID    : { type: String},

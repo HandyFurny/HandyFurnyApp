@@ -1,4 +1,7 @@
-function startMap() {
+
+
+
+function startMap(items) {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 15
@@ -31,10 +34,13 @@ function startMap() {
           }
   
 
-          //autocomplite
-          var input = document.getElementById("search-box");
-          autocomplete(input, map);
-
+        //autocomplite
+        var input = document.getElementById("search-box");
+        autocomplete(input, map);
+        //mark items
+        markItems(map);
+        
+          
   };
   
   startMap();
