@@ -91,9 +91,13 @@ router.post('/:id/delete', (req, res, next) => {
 
 /* Catalog index*/
 router.get('/', (req, res, next) => {
-  Item.find({})
+  Item.find({}).sort({created_at: -1})
   .populate("_creator")
-  .then(result => res.render('catalog/index', {user:req.user, items:result, types:TYPES}))
+  .then(result => {
+    console.log("========>")
+    console.log(result)
+    res.render('catalog/index', {user:req.user, items:result, types:TYPES})
+  })
 });
 
 
