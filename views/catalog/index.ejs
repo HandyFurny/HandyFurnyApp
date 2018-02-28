@@ -12,7 +12,7 @@
         </ul>
     </div>
 </nav>
-<div class="catalog-map">
+<div class="catalog">
     <section>
         <div>
             <h1>Discover the people who are selling furniture</h1>
@@ -22,45 +22,47 @@
                 <input id="search-box" type="text" name="where" placeholder="Search by zone">
             </form>
         </div>
+        <div>
+            <div id="map"></div>
+        </div>
     </section>
     <section>
-        <div id="map"></div>
+        <div class="new-items">
+
+            <% if (items.length >= 10 ) { %>  
+                
+            <%  for (var i = 0; i < 10; i++) {%> 
+            <div class="new-items-card">
+                <p><%= items[i].created_at %></p>
+                <img class="item-image" src="<%= items[i].itemPic %>">
+                <a class="title" href="/catalog/<%= items[i]._id %>">
+                <strong><%= items[i].title %></strong>
+                </a>
+                <span class="item-category"><%= items[i].category %></span>
+                <div class="creator-info">
+                <span><img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>"><strong><%= items[i]._creator.username %></strong></span>
+            </div>
+            <% } %>
+            <% } else {%>
+            
+                <%  items.forEach( item => {%> 
+                    
+                <div class="new-items-card">
+                    <img class="item-image" src="<%= item.itemPic %>">
+                    <a class="title" href="/catalog/<%= item._id %>">
+                    <strong><%= item.title %></strong>
+                    </a>
+                    <span class="item-category"><%= item.category %></span>
+                    <div class="creator-info">
+                    <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"><strong><%= item._creator.username %></strong></span>
+                </div>
+                <%})%> 
+            <%} %>  
+        </div>
     </section>
 </div>
 
-<div class="new-items">
 
-    <% if (items.length >= 10 ) { %>  
-        
-    <%  for (var i = 0; i < 10; i++) {%> 
-    <div class="new-items-card">
-        <p><%= items[i].created_at %></p>
-        <img class="item-image" src="<%= items[i].itemPic %>">
-        <a class="title" href="/catalog/<%= items[i]._id %>">
-        <strong><%= items[i].title %></strong>
-        </a>
-        <span class="item-category"><%= items[i].category %></span>
-        <div class="creator-info">
-        <span><img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>"><strong><%= items[i]._creator.username %></strong></span>
-    </div>
-    <% } %>
-    <% } else {%>
-        <p><%= items.length %></p>  
-        <%  items.forEach( item => {%> 
-            
-        <div class="new-items-card">
-            <p><%= item.created_at %></p>
-            <img class="item-image" src="<%= item.itemPic %>">
-            <a class="title" href="/catalog/<%= item._id %>">
-            <strong><%= item.title %></strong>
-            </a>
-            <span class="item-category"><%= item.category %></span>
-            <div class="creator-info">
-            <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"><strong><%= item._creator.username %></strong></span>
-        </div>
-        <%})%> 
-    <%} %>  
-</div>
 <script type="text/javascript">
     var items = <%- JSON.stringify(items) %>;
 </script>

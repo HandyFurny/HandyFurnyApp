@@ -16,7 +16,6 @@ router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
   });
 });
 router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
-
     User.findById(req.params.id)
       .then(user => {
         Item.find({_creator:req.params.id})
@@ -26,7 +25,6 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
           .catch(err => console.log(err))
       })
       .catch(err => console.log(err))
-    
 });
 
 
