@@ -13,6 +13,32 @@ y la información del seller y el chat y la lista de los otros items que quiero 
     #messages li { padding: 5px 10px; }
     #messages li:nth-child(odd) { background: #eee; }
   </style>
+
+<div class="item-chat-container">
+    <div>
+      <div>
+        <img class="item-img-chat" src="<%= item.itemPic %>">
+      </div>
+      <div>
+        <h2>$ <%= item.price %></h2>
+        <span class="item-category"><%= item.category %></span>
+        <p> Description: <br> <%= item.description%></p>
+      </div>
+  
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
    <ul id="messages"></ul>
    <form action="">
      <input id="m" autocomplete="off" /><button>Send</button>

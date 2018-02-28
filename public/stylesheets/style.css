@@ -151,3 +151,14 @@ footer p{
    width: 300px;
    margin-top: 20px; 
  }
+
+.item-chat-container{
+  display:flex;
+   justify-content: flex-end;
+}
+
+
+ .item-img-chat{
+ 
+   width: 200px;
+ }

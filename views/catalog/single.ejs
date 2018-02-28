@@ -15,7 +15,7 @@
         <p> Description: <br> <%= item.description%></p>
       </div>
       <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
-      <a class="chat-button" href="/chat">Chat</a>
+      <a class="chat-button" href="/chat/<%=item._creator._id%>&<%=item._id%>">Chat</a>
       <form action="/catalog/<%= item._id %>/delete" method="POST">
         <button type="submit">Delete Product</button>
       </form>
