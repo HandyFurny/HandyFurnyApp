@@ -40,7 +40,7 @@ router.get('/list', (req, res, next) => {
 
 router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
     userId = req.user._id
-    console.log('USER: '+userId)
+    //console.log('USER: '+userId)
     Item.findById(req.params.id)
       .populate("_creator")
       .then(result => {
