@@ -1,17 +1,11 @@
 const express = require('express');
-const router  = express.Router();
-const User               = require('../models/User');
-const Item               = require('../models/Item');
-const Chat               = require('../models/Chat');
-const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+var router=express();
 
- //
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    res.render('item/chat');   
-  });
-
-
+  res.render('item/chat');   
+});
 
 
 module.exports = router;
+     
