@@ -27,18 +27,6 @@ y la información del seller y el chat y la lista de los otros items que quiero 
   
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
    <ul id="messages"></ul>
    <form action="">
      <input id="m" autocomplete="off" /><button>Send</button>
@@ -49,15 +37,46 @@ y la información del seller y el chat y la lista de los otros items que quiero 
      $(function () {
        var socket = io().connect('http://localhost:3000');
        $('form').submit(function(){
+        // console.log(item)
+        //  var msgtoSocketIO={
+        //    text:$('#m').val(),
+        //    itemID:item._id
+        //  }
+
+          var msgtoSocketIO={
+           text:$('#m').val(),
+           itemID:"<%=item._id%>",
+           username:"<%=user.username%>",
+           _id:"<%=user._id%>"
+         };
+
          console.log("entro a mandar la informacion")
-         socket.emit('chat message', $('#m').val());
+         socket.emit('chat message',msgtoSocketIO);
          $('#m').val('');
          return false;
        });
+       
        socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
         window.scrollTo(0, document.body.scrollHeight);
       });
+
+        /*
+    Message listener
+  */
+  $("#msg").keypress((e) => {
+    if (e.which !== 13) {
+      if (_typing === false && $('#msg').is(':focus')) {
+        _typing = true;
+        socket.emit('user typing', true);
+        _timeout = setTimeout(resetTyping, 3000);
+      } else {
+        clearTimeout(_timeout);
+        _timeout = setTimeout(resetTyping, 3000);
+      }
+    }
+  });
+  
   
      });
    </script>
