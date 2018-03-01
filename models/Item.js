@@ -9,10 +9,10 @@ const itemSchema = new Schema({
   category      : { type: String, enum: TYPES, required: true },
   price         : { type: Number, required: true  },
   views         : { type: Number, default: 0  },
-  itemPic       : { type: String, required: true  }
+  itemPic       : { type: String, required: true  },
 },{
   timestamps    : {createdAt: "created_at", updatedAt: "updated_at"}
 
 });
 
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = mongoose.model('Item', itemSchema);  

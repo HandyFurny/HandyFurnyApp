@@ -10,7 +10,9 @@ const userSchema = new Schema({
   facebookID  : { type: String},
   googleID    : { type: String},
   reviews     : [{ type: String, default: ''}],
-  location    : {type: {type: String},coordinates:{type: [Number], default:[19.3978285, -99.1729289]}
+  location    : {type: {type: String},coordinates:{type: [Number], default:[19.3978285, -99.1729289]},
+  favorite    : [{ type: Schema.Types.ObjectId, ref: 'Item', required: true  }],
+  
 }
 });
 

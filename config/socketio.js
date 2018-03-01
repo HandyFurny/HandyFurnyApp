@@ -14,72 +14,54 @@ module.exports = (app) =>{
     // socket.on('chat message', function(msg){
     //     io.emit('chat message', msg);
     //   });
+
     socket.on('chat message', function (data) {
       console.log(`Mensaje recibido, reenviando(back):`, data);
      //console.log(socket);
     // Chat.find("")
-    console.log("8=================D")
-  
-
-          Item.findById(data.itemID)
-          .populate("_creator")
-          .then(items =>{
-            const updates = {
-              _ownerBuyer   : data._id,
-              _userSeller   : data._creator._id,
-              _itemID       : data.itemID,
-              messages      : messages.push(data.text),
-            };
-        
-            // Item.findByIdAndUpdate(req.params.id, updates, (err, item) => {
-            //   if (err) {
-            //     return res.redirect('/catalog/'+req.params.id+'/edit')
-            //   }
-            //   if (!item) {
-            //     return next(new Error('404'));
-            //   }
-            //   return res.redirect('/catalog/'+req.params.id);
-            // });
+   
+          // BUSCO SI  ya existe chat
+    Chat.findOne( { $or : [{ $and : [ { _Buyer : data.user1_id  }, { _Seller : data.user2_id } ] },{ $and : [ { _Buyer : data.user2_id  }, { _Seller : data.user1_id } ] } ] } ,(err,doc)=>{
+      if (err) {
+        return res.redirect('/catalog/')
+      }
+      if (!doc) {
+        // SI NO EXISTE CHAT ENTRE USUARIOS ME LO CREA
+        console.log("no lo encontre")
+        var frase=data.text;
+        console.log(frase);
+        var newChat= new Chat({
+          messages:[frase],
+          _itemID:data.itemID,
+          _Buyer:data.user1_id,
+          _Seller:data.user2_id
+        });
+        // guardo en BBDD  
+        console.log("esto es mi mensaje "+data.text);
+        //newChat.messages.push(data.text);
+        newChat.save()
+          .then(sentence =>{
+            console.log("guarde el chat y esstoy dentro")
+            console.log(newChat);
           })
-          .catch  (err =>console.log('error'))
-
-
-          console.log(data)
-          io.emit('chat message', `${data.username} : ${data.text}`);
-
-
-       
-        
-
-          // const myChat = new Chat({
-          //           message:data.message,
-          //           owner: data.creator,
-          //           events_id: data.events_id,
-          //           score: data.score
-          //         });
-          //         //guarda en BBDD
-          // theQuestions.save()
-          // .then(question =>{
-          // console.log("asdasdasdasdasdas",question.owner);
-          // Questions.findById(question).populate("owner")
-          // .then(questions_s => {
-          // console.log("dentrooooooo",questions_s.owner.username);
-          // res.status(200).json(questions_s);
-          // });
-
-
-
-
+          .catch(err => console.log(err))
+    
+      }else{
+        // SI EXISTE CHAT ME AGREGA EL MENSAJE
+      
+      Chat.findByIdAndUpdate(doc._id, {$push: {messages: data.text}}, function (err, data){
+          if (err )console.log(err)
+          console.log("conseguido!!!")
+      })
+    }
+    });
+      
+      io.emit('chat message', `${data.username1} : ${data.text}`);
 
     });
 
-    
-
-  
   });
 };
-
-
 
 
 

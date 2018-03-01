@@ -12,6 +12,14 @@ router.get('/new', (req, res, next) =>{
   res.render('item/new', {types:  TYPES});
 });
 
+router.get('/api', (req, res, next) =>{
+  console.log("entro a la busquedaaaaaa")
+  Item.find({})
+    .populate("_creator")
+    .then(result => res.json(result))
+
+});
+
 router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, next)  =>{
   const newItem  = new Item({
   _creator      : req.user._id,

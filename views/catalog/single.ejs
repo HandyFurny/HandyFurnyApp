@@ -23,12 +23,12 @@
       <!-- Contador para views, al hacer clic en el nombre del item debe aumentar uno -->
       <p> Views: <br> <%= item.views %></p>
     </div>
-    <a class="chat-button" href="/chat/<%=item._creator._id%>&<%=item._id%>">Chat</a>
+    <a class="chat-button" href="/chat/<%=item._id%>">Chat</a>
     <form action="/catalog/<%= item._id %>/delete" method="POST">
       <button type="submit">Delete Product</button>
     </form>
     <% if (toString(userId) === toString(item._creator._id)) {  %>  
-    <a class="edit-item-button" href="/catalog/<%= item._id %>/edit">Edit your furny</a>
+    <a class="edit-item-button" href="/catalog/<%= item._id%>/edit">Edit your furny</a>
     <% } %>
   </div>
 </div>
