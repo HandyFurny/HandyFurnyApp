@@ -6,6 +6,7 @@ html, body {
   padding: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #4A4A4A;
+
 }
 
 nav{
@@ -453,7 +454,7 @@ footer p{
 .list-products, .buy-sell-mylist{
   text-align: center;
   width: 100vw;
-  min-height: 85vh;
+  /* min-height: 85vh; */
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -461,11 +462,13 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 40px;
+  
 }
 
 
-.buy-sell-mylist h3 {
+.buy-sell-mylist h3, .reviews-list h3 {
   width: 100vw;
+  border-bottom: #EDEFF1 solid 2px;
 }
 
 .user-pic-xl {
