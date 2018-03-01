@@ -1,38 +1,76 @@
 <!--Vine del item que he seleccionado del catalog-list y renderiza la info del item 
 y la información del seller y el chat y la lista de los otros items que quiero  -->
+<nav>
+  <div>
+      <h3>Handy Furny</h3>
+  </div>
+  <div>
+      <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/catalog/new">New Product</a></li>
+          <li><a href="/catalog/list">All Products</a> </li>
 
+      </ul>
+  </div>
+</nav>
 <h2>CHAT</h2>
 
 <style>
+    
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font: 13px Helvetica, Arial; }
-    form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+    form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 70%; }
     form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-    form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+    form button { width: 9%; background: rgb(36, 206, 169); border: none; padding: 10px; }
     #messages { list-style-type: none; margin: 0; padding: 0; }
     #messages li { padding: 5px 10px; }
     #messages li:nth-child(odd) { background: #eee; }
   </style>
+<section class="chat">
 
-<div class="item-chat-container">
-    <div>
-      <div>
-        <img class="item-img-chat" src="<%= item.itemPic %>">
-      </div>
-      <div>
-        <h2>$ <%= item.price %></h2>
-        <span class="item-category"><%= item.category %></span>
-        <p> Description: <br> <%= item.description%></p>
-      </div>
-  
+    <div class="item-chat-container">
+        
+          <div>
+            <img class="item-img-chat" src="<%= item.itemPic %>">
+          </div>
+          <div>
+            <h2> <%=item.title%> $<%=item.price %></h2>
+            <span class="item-category"><%= item.category %></span>
+            <p> Description: <br> <%= item.description%></p>
+          </div>
+      
+    </div>
+    <div class="chat-form">
+    
+      <ul id="messages">
+        <% if (doc!=undefined){%>
+           <% doc.messages.forEach(m=>{%>
+             <li><%=m%></li>
+           <%})%>
+        
+        <%}else {%>
+          <li></li>
+          <%}%>
+      </ul>
+      <form action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+      </form>
+    
+    
     </div>
 
-   <ul id="messages"></ul>
-   <form action="">
-     <input id="m" autocomplete="off" /><button>Send</button>
-   </form>
+
+
+
+</section>
+
+
+  
+
    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+   <script type="text/javascript" src="javascripts/chat/firstchat.js"></script>
    <script>
      $(function () {
        var socket = io().connect('http://localhost:3000');
@@ -73,8 +111,8 @@ y la información del seller y el chat y la lista de los otros items que quiero 
     }
   });
   
-  
-     });
+ });
    </script>
+
 
 
