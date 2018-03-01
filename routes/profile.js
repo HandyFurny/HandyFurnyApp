@@ -23,7 +23,8 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
             Review.find({_userSeller:req.params.id})
               .then(reviews => {
                 User.findById(req.user._id)
-                .then(owner => {
+                .populate('favorite')
+                .then(owner => {                
                   res.render("user/profile",{user,items,reviews, owner})
                 })
                 .catch(err => res.render('error',{message:err}))                

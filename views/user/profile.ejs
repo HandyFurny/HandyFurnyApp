@@ -51,29 +51,29 @@
 
       <%}%>
     </div>
-    <div class="buy-sell-mylist">
-
-        <h3>I'm interested in: </h3>
-        <% if (items.length >= 1) {%>
-        <% items.forEach( item => {%>
-        <div class="furny-info">
-          <div>
-            <img class="resize item-image" src="<%= item.itemPic %>">
-          </div>
-          <div>
-              <a class="title" href="/catalog/<%= item._id %>">
-                <strong><%= item.title %></strong>
-                </a>
-                <p class="item-category">  <i> <%= item.category %></i></p>
-                <div class="price"><b>$ <%= item.price %>.00</b></div>  
-          </div>
+</div>   
+<% if (user._id===owner._id){%>
+<div class="sell-buy-mylist">
+  <div>
+    <!-- SOLO SI YO SOY EL CURRENT USER DEBE APARECER LO DE ABAJO -->
+    <h3>I'm interested in: </h3>
+    <% if (owner.favorite.length >= 1) {%>
+    <% owner.favorite.forEach( favorite => {%>
+    <div>
+      <img src="<%= favorite.itemPic %>">
+      <h2><%= favorite.title %></h2>
+      <p><%= favorite.category %></p>
+      <p>$ <%= favorite.price %>.00</p>
+    </div>
+    <%}) %> 
+    <%} else {%>
+        <div>
         </div>
-        <%}) %> 
-        <%} else {%>
-            <div></div>
-  
-        <%}%>
-      </div>   
+    <%}%>
+  </div>
+</div>
+<%}%>
+
 
 </div>
 <div class="reviews-list">
