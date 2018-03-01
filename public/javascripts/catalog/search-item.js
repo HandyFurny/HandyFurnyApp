@@ -20,10 +20,10 @@ document.getElementById('search-furny-submit').onclick = function(){
             arrChar.forEach(char => { 
                 content += `
                 <div class="furny-info">
-                    <img class="item-image" src="${char.itemPic}">
+                    <img class="resize item-image" src="${char.itemPic}">
                     <a href="/catalog/${char._id}"><strong>${char.title}</strong></a>
                     <p class="item-category">${char.category}</p>
-                    <div class="price"><b>${char.price }</b></div>
+                    <div class="price"><b>$ ${char.price }.00</b></div>
                     <div class="creator-info">
                         <img class="user-profile-pic" src="${char._creator.profilePic}">
                         <a href="/user/${char._creator._id}">${char._creator.username}</a>

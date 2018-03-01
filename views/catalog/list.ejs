@@ -12,23 +12,23 @@
         </ul>
     </div>
 </nav>
-<a class="home-button" href="/catalog">Home</a>
-<h1>All Products</h1>
+
 <div class="container">
+    <h1>All Products</h1>
+    <div class="list-products">
     <% items.forEach((item) => { %>
 
       
-          <div class="item-container">
+          <div class="furny-info">
             <div>
-              <img class="item-image" src="<%= item.itemPic %>">
+              <img class="resize item-image" src="<%= item.itemPic %>">
             </div>
             <div>
                 <a class="title" href="/catalog/<%= item._id %>">
               <strong><%= item.title %></strong>
               </a>
-              <h2>$ <%= item.price %>.00</h2>
-           
-              <span class="item-category">  <i> <%= item.category %></i></span>
+              <p class="item-category">  <i> <%= item.category %></i></p>
+              <div class="price"><b>$ <%= item.price %>.00</b></div>
               <div class="creator-info">
               <span>
                 <img class="user-profile-pic" src="<%= item._creator.profilePic %>">
@@ -42,7 +42,10 @@
           </div>
           <% }) %>
       
-
+    </div>
 </div>
 
+<footer>
+        <p>Handy Furny © | 2018</p>
+    </footer><!-- /footer -->
   

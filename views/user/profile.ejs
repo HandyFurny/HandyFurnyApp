@@ -12,38 +12,43 @@
         </ul>
     </div>
 </nav>
+<div class="container">
   <div class="creator-info">
     <h2><%= user.username %></h2>
-    <span><%= user.reviews %></span>
     <img class="user-profile-pic" src="<%= user.profilePic %>">
     <p><%= user.email%></p>
     <p>Current direccion: [<%= user.location.coordinates %>]</p>
   </div>
-  <div class="container user-container">
-    <div>
-      
+
+
       <a class="edit-user-button" href="/user/<%= user._id %>/edit">Edit your profile</a>
       <form action="/user/<%= user._id %>/delete" method="POST">
         <button type="submit">Delete User</button>
       </form>
-    </div>
-</div>
 
-<div class="sell-buy-mylist">
-    <div>
+
+
+<div class="buy-sell-mylist">
+
       <h3>I'm selling: </h3>
       <% if (items.length >= 1) {%>
       <% items.forEach( item => {%>
-      <div>
-        <img src="<%= item.itemPic %>">
-        <h2><%= item.title %></h2>
-        <p><%= item.category %></p>
-        <p>$ <%= item.price %>.00</p>
+      <div class="furny-info">
+        <div>
+          <img class="resize item-image" src="<%= item.itemPic %>">
+        </div>
+        <div>
+            <a class="title" href="/catalog/<%= item._id %>">
+              <strong><%= item.title %></strong>
+              </a>
+              <p class="item-category">  <i> <%= item.category %></i></p>
+              <div class="price"><b>$ <%= item.price %>.00</b></div>  
+        </div>
       </div>
       <%}) %> 
       <%} else {%>
-          <div>
-          </div>
+          <div></div>
+
       <%}%>
     </div>
 </div>   
@@ -70,6 +75,7 @@
 <%}%>
 
 
+</div>
 <div class="reviews-list">
     <h3>User Reviews!</h3>
     <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
@@ -88,4 +94,5 @@
         </div>
     <%}%>
   </div>
+</div>
 </div>
