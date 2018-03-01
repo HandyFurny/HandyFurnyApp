@@ -4,15 +4,14 @@
     </div>
     <div>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="/catalog">Home</a></li>
             <li><a href="/logout">Log Out</a></li>
             <li><a href="/catalog/new">New Product</a></li>
             <li><a href="/catalog/list">All Products</a> </li>
-           
+            <li><a href="/user/<%=user._id%>">Profile</a> </li>
         </ul>
     </div>
 </nav>
-
 <div class="new-item-container">
   <h2>Post a new furny !!</h2>
       <form action="/catalog/new" method="post"  enctype="multipart/form-data">
@@ -43,3 +42,6 @@
         </div>
       </form>
 </div>
+<footer>
+    <p>Handy Furny © | 2018</p>
+</footer><!-- /footer -->
