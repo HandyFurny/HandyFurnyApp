@@ -19,7 +19,7 @@ document.getElementById('search-furny-submit').onclick = function(){
             var content = ''
             arrChar.forEach(char => { 
                 content += `
-                <div class="character-info">
+                <div class="furny-info">
                     <img class="item-image" src="${char.itemPic}">
                     <a href="/catalog/${char._id}"><strong>${char.title}</strong></a>
                     <p class="item-category">${char.category}</p>

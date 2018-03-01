@@ -10,7 +10,7 @@ const { checkOwnership }  = require ('../middlewares/currentUser.js')
 
 
 router.get('/new', (req, res, next) =>{
-  res.render('item/new', {types:  TYPES});
+  res.render('item/new', {types:  TYPES, user:req.user});
 });
 
 router.get('/api', (req, res, next) =>{
@@ -40,7 +40,7 @@ router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
 router.get('/list', (req, res, next) => {
   Item.find({})
     .populate("_creator")
-    .then(items =>  res.render('catalog/list', {items}))
+    .then(items =>  res.render('catalog/list', {items, user:req.user}))
     .catch(err => res.render('error'))
 });
 
@@ -48,7 +48,7 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
     userId = req.user._id
     Item.findById(req.params.id)
       .populate("_creator")
-      .then(result => res.render("catalog/single", { userId, item: result}))
+      .then(result => res.render("catalog/single", { userId, item: result, user:req.user}))
       .catch(err => res.render('error'))
 });
 

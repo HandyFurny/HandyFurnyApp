@@ -1,6 +1,17 @@
-<!-- Renderiza el listado de los items que vendo con boton de chat_sell, edit y  delete 
-
-Y el listado de los items que estoy comprando con boton de chat_buy y delete-->
+<nav>
+    <div>
+        <h3>Handy Furny</h3>
+    </div>
+    <div>
+        <ul>
+            <li><a href="/catalog">Home</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/catalog/new">New Product</a></li>
+            <li><a href="/catalog/list">All Products</a> </li>
+            <li><a href="/user/<%=user._id%>">Profile</a> </li>
+        </ul>
+    </div>
+</nav>
 <a class="home-button" href="/catalog">Home</a>
 <h1>All Products</h1>
 <div class="container">
