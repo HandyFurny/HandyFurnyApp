@@ -16,17 +16,7 @@ y la información del seller y el chat y la lista de los otros items que quiero 
 </nav>
 <h2>CHAT</h2>
 
-<style>
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font: 13px Helvetica, Arial; }
-    form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 70%; }
-    form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-    form button { width: 9%; background: rgb(36, 206, 169); border: none; padding: 10px; }
-    #messages { list-style-type: none; margin: 0; padding: 0; }
-    #messages li { padding: 5px 10px; }
-    #messages li:nth-child(odd) { background: #eee; }
-  </style>
+
 <section class="chat">
 
     <div class="item-chat-container">
@@ -41,24 +31,25 @@ y la información del seller y el chat y la lista de los otros items que quiero 
           </div>
       
     </div>
-    <div class="chat-form">
+
+   <div class="chat-form">
     
       <ul id="messages">
         <% if (doc!=undefined){%>
-          <% doc.messages.forEach(m=>{%>
-            <li><%=m%></li>
-          <%})%>
-       
-       <%}else {%>
-         <li></li>
-         <%}%>
+           <% doc.messages.forEach(m=>{%>
+             <li><%=m%></li>
+           <%})%>
+        
+        <%}else {%>
+          <li></li>
+          <%}%>
       </ul>
-      <form action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
+      <form class="form-chat"action="">
+        <input class="form-chat-input"id="m" autocomplete="off" /><button class="form-chat-button">Send</button>
       </form>
     
     
-    </div>
+  </div>
 
 
 
