@@ -23,9 +23,9 @@ console.log(req.params.iid)
             console.log("este es el chat"+doc.messages[0])
             res.render('item/chat', { user:req.user,item: result,doc:doc})
          }else{
-          let doc=[]
+      
           // tengo que añadir el item en el que estoy interesada a favoritos
-          res.render('item/chat', { user:req.user,item: result,doc:doc})
+          res.render('item/chat', { user:req.user,item: result, doc:[""]})
          }
         });  
 
