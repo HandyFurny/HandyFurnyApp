@@ -2,6 +2,7 @@
 <a class="home-button" href="/catalog/list">All Products</a>
   <div class="creator-info">
     <h2><%= user.username %></h2>
+    <span><%= user.reviews %></span>
     <img class="user-profile-pic" src="<%= user.profilePic %>">
     <p><%= user.email%></p>
     <p>Current direccion: [<%= user.location.coordinates %>]</p>
@@ -13,6 +14,7 @@
       <form action="/user/<%= user._id %>/delete" method="POST">
         <button type="submit">Delete User</button>
       </form>
+      <a class="review-user-button" href="/review/<%= user._id %>/review">Review the user</a>
     </div>
 </div>
 
@@ -34,3 +36,16 @@
       <%}%>
     </div>
 </div>
+
+<div class="user-reviews-form">
+  <h3>Checkout my reviews!</h3>
+  <form action="/review/<%= user._id %>/review" method="POST" id="new-tweet">
+    <label for="description">Review:</label>
+    <input type="text" name="description" maxlength="200"
+      placeholder="What's going on?" required>
+    <label for="rate">Rate me:</label>
+    <input type="number" name="rate" min="0" max="10" required>
+    <input class="button blue fright" type="submit" value="Post Review!">
+  </form>
+</div>      
+

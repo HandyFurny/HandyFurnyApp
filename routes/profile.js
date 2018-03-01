@@ -7,7 +7,7 @@ const upload                = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }    = require ('connect-ensure-login');
 const bcrypt                = require ('bcrypt');
 const salt                  = bcrypt.genSaltSync(10);
-
+const Review                = require ('../models/Review.js')
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id)
