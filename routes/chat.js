@@ -9,6 +9,9 @@ const { ensureLoggedIn }  = require('connect-ensure-login');
 router.get('/:iid', ensureLoggedIn('/'), (req, res, next) => {
 console.log("este es mi usuario "+ req.user);
 console.log(req.params.iid)
+
+
+
     Item.findById(req.params.iid)
       .populate("_creator")
       .then(result => {
@@ -19,6 +22,19 @@ console.log(req.params.iid)
 
 });
 
+  // Chat.findOne( { $or : [{ $and : [ { _Buyer : data.user1_id  }, { _Seller : data.user2_id } ] },{ $and : [ { _Buyer : data.user2_id  }, { _Seller : data.user1_id } ] } ] } ,(err,doc)=>{
+  //   if (err) {
+  //     return res.redirect('/catalog/')
+  //   }
+  //   if (doc) {
+
+  //   }
+  // });
+  
+
+
+  
+  
 
 
 module.exports = router;

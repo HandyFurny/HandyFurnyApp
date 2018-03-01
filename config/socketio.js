@@ -48,12 +48,14 @@ module.exports = (app) =>{
     
       }else{
         // SI EXISTE CHAT ME AGREGA EL MENSAJE
+      
       Chat.findByIdAndUpdate(doc._id, {$push: {messages: data.text}}, function (err, data){
           if (err )console.log(err)
           console.log("conseguido!!!")
       })
     }
     });
+      
       io.emit('chat message', `${data.username1} : ${data.text}`);
 
     });
