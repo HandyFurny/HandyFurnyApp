@@ -10,7 +10,7 @@ router.get('/:id/review', ensureLoggedIn('/'),  (req, res, next) => {
       console.log('estoy en review')
       res.render('user/review', { user })
     })
-    .catch(err => res.send('error',{essage:err}));
+    .catch(err => res.send('error', { message: err }));
 });
 
 router.post('/:id/review', ensureLoggedIn('/'), (req, res, next)  =>{
@@ -23,8 +23,10 @@ router.post('/:id/review', ensureLoggedIn('/'), (req, res, next)  =>{
   });
   console.log('estoy llegando')
   newReview.save()
-    .then(()=>res.redirect(`/user/${req.params.id}`))
-    .catch(err => res.render('error',{message:err}));
+    .then(()=>{
+      res.redirect(`/user/${req.params.id}`)
+    })
+    .catch(err => res.render('error',{ message:err }));
 });
 
 module.exports = router;

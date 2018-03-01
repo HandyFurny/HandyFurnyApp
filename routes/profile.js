@@ -19,7 +19,19 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
     User.findById(req.params.id)
       .then(user => {
         Item.find({_creator:req.params.id})
-          .then(items => res.render("user/profile",{user,items}))
+          .then(items =>{
+            Review.find({_userSeller:req.params.id})
+              .then(reviews => {
+                console.log(reviews)
+                User.findById(req.user._id)
+                .then(owner => {
+                  console.log(owner)
+                  res.render("user/profile",{user,items,reviews, owner})
+                })
+                .catch(err => res.render('error',{message:err}))                
+              })
+              .catch(err => res.render('error',{message:err}))
+          })
           .catch(err => res.render('error'));
       })
       .catch(err => res.render('error'));

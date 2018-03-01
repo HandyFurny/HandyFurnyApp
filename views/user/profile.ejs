@@ -14,7 +14,6 @@
       <form action="/user/<%= user._id %>/delete" method="POST">
         <button type="submit">Delete User</button>
       </form>
-      <a class="review-user-button" href="/review/<%= user._id %>/review">Review the user</a>
     </div>
 </div>
 
@@ -27,7 +26,7 @@
         <img src="<%= item.itemPic %>">
         <h2><%= item.title %></h2>
         <p><%= item.category %></p>
-        <p><%= item.price %></p>
+        <p>$ <%= item.price %>.00</p>
       </div>
       <%}) %> 
       <%} else {%>
@@ -35,19 +34,7 @@
           </div>
       <%}%>
     </div>
-</div>
-
-<div class="user-reviews-form">
-  <h3>Checkout my reviews!</h3>
-  <form action="/review/<%= user._id %>/review" method="POST" id="new-tweet">
-    <label for="description">Review:</label>
-    <input type="text" name="description" maxlength="200"
-      placeholder="What's going on?" required>
-    <label for="rate">Rate me:</label>
-    <input type="number" name="rate" min="0" max="10" required>
-    <input class="button blue fright" type="submit" value="Post Review!">
-  </form>
-</div>      
+</div>   
 
 <div class="sell-buy-mylist">
   <div>
@@ -58,7 +45,27 @@
       <img src="<%= item.itemPic %>">
       <h2><%= item.title %></h2>
       <p><%= item.category %></p>
-      <p><%= item.price %></p>
+      <p>$ <%= item.price %>.00</p>
+    </div>
+    <%}) %> 
+    <%} else {%>
+        <div>
+        </div>
+    <%}%>
+  </div>
+</div>
+
+<div class="reviews-list">
+    <h3>User Reviews!</h3>
+    <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
+  <div>
+    <% if (reviews.length >= 1) {%>
+    <% reviews.forEach( review => {%>
+    <div>
+      <img src="<%= review.itemPic %>">
+      <h2><%= owner.username %></h2>
+      <p><%= review.rate%></p>
+      <p><%= review.description %></p>
     </div>
     <%}) %> 
     <%} else {%>
