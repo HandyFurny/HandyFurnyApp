@@ -19,13 +19,26 @@ console.log(req.params.iid)
         console.log("este es el propietario del item"+result._creator._id);
         Chat.findOne( { $or : [{ $and : [ { _Buyer : req.user._id }, { _Seller : result._creator._id } ] },{ $and : [ { _Buyer : result._creator._id  }, { _Seller : req.user._id } ] } ] } ,(err,doc)=>{
           if (doc) {
-           // console.log("estoy dentro del chat"+result);  
+           // console.log("estoy dentro del chat"+result);
+          //  const updates = {
+          //   title         : req.body.title,
+          //   description   : req.body.description,
+          //   category      : req.body.category,
+          //   price         : req.body.price,
+          //   views         : 0,
+          //   itemPic       : `/uploads/${req.file.filename}`
+          // };
+          // Item.findByIdAndUpdate(req.user._id, updates)
+          // .then(item => res.redirect('/catalog/'+req.params.id))
+          // .catch(err => res.redirect('/catalog/'+req.params.id+'/edit'))  
             console.log("este es el chat"+doc.messages[0])
             res.render('item/chat', { user:req.user,item: result,doc:doc})
-         }else{
-      
+          }else{
+          let doc=undefined;
+          console.log(doc);
+          console.log("llego aqui");
           // tengo que añadir el item en el que estoy interesada a favoritos
-          res.render('item/chat', { user:req.user,item: result, doc:[""]})
+          res.render('item/chat', { user:req.user,item: result, doc:doc})
          }
         });  
 
