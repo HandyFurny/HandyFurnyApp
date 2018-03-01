@@ -19,5 +19,18 @@
 <div class="sell-buy-mylist">
     <div>
       <h3>I'm selling: </h3>
+      <% if (items.length >= 1) {%>
+      <% items.forEach( item => {%>
+      <div>
+        <img src="<%= item.itemPic %>">
+        <h2><%= item.title %></h2>
+        <p><%= item.category %></p>
+        <p><%= item.price %></p>
+      </div>
+      <%}) %> 
+      <%} else {%>
+          <div>
+          </div>
+      <%}%>
     </div>
 </div>
