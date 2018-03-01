@@ -155,15 +155,26 @@ footer p{
  }
 
 .item-chat-container{
-  display:flex;
-   justify-content: flex-end;
+  margin-right: 30px;
+   display:flex;
+   justify-content: flex-start;
+   border:3px solid ghostwhite;
 }
 
+.chat{
+  background-color:lightgray;
+}
 
  .item-img-chat{
- 
-   width: 200px;
+   width: 100px;
  }
+
+.chat-form{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 3px solid darkgreen;
+}
 
  .catalog section:nth-child(2) {
   width: 220px;
@@ -215,3 +226,4 @@ footer p{
   width: 100vw;
   text-align: center;
 }
+
