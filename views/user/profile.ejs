@@ -2,6 +2,7 @@
 <a class="home-button" href="/catalog/list">All Products</a>
   <div class="creator-info">
     <h2><%= user.username %></h2>
+    <span><%= user.reviews %></span>
     <img class="user-profile-pic" src="<%= user.profilePic %>">
     <p><%= user.email%></p>
     <p>Current direccion: [<%= user.location.coordinates %>]</p>
@@ -25,7 +26,7 @@
         <img src="<%= item.itemPic %>">
         <h2><%= item.title %></h2>
         <p><%= item.category %></p>
-        <p><%= item.price %></p>
+        <p>$ <%= item.price %>.00</p>
       </div>
       <%}) %> 
       <%} else {%>
@@ -33,7 +34,8 @@
           </div>
       <%}%>
     </div>
-</div>
+</div>   
+
 <div class="sell-buy-mylist">
   <div>
     <h3>I'm interested in: </h3>
@@ -43,7 +45,27 @@
       <img src="<%= item.itemPic %>">
       <h2><%= item.title %></h2>
       <p><%= item.category %></p>
-      <p><%= item.price %></p>
+      <p>$ <%= item.price %>.00</p>
+    </div>
+    <%}) %> 
+    <%} else {%>
+        <div>
+        </div>
+    <%}%>
+  </div>
+</div>
+
+<div class="reviews-list">
+    <h3>User Reviews!</h3>
+    <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
+  <div>
+    <% if (reviews.length >= 1) {%>
+    <% reviews.forEach( review => {%>
+    <div>
+      <img src="<%= review.itemPic %>">
+      <h2><%= owner.username %></h2>
+      <p><%= review.rate%></p>
+      <p><%= review.description %></p>
     </div>
     <%}) %> 
     <%} else {%>

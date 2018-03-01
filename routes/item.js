@@ -6,6 +6,7 @@ const User                = require ('../models/User.js');
 const upload              = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }  = require ('connect-ensure-login');
 const router              = express.Router();
+const { checkOwnership }  = require ('../middlewares/currentUser.js')
 
 
 router.get('/new', (req, res, next) =>{
@@ -32,7 +33,7 @@ router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
   });
 
   newItem.save()
-    .then(res.redirect('/catalog/list'))
+    .then(()=>res.redirect('/catalog/list'))
     .catch(err => res.render('error'));
 });
 

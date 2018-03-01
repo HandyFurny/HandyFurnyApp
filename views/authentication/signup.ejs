@@ -1,32 +1,44 @@
+ <!-- nav -->
+ <nav>
+    <div>
+        <h3>Handy Furny</h3>
+    </div>
+    <div>
+        <ul class="nav">
+        <li><a href="/" >Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/login">Log In</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        </ul>
+    </div>
+  </nav> <!-- /nav -->
+  <div class="container-header">
 
-
-
-  <div class="login">
-    <form action="/signup" method="POST" id="form-container">
-        <label for="username">Username</label>
-        <input class="login-input"id="username" type="text" name="username" placeholder="JonSnow" required>
-        <br><br>
-        <label for="email">Email</label>
-        <input class="login-input" type="text" name="email" class="form-control" required>
-        <br><br>
-        <label for="password">Password</label>
-        <input class="login-input" id="password" type="password" name="password" placeholder="Your password" required>
+    <div class="background-header">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST" id="form-container">
+          <input class="login-input"id="username" type="text" name="username" placeholder="Username" required>
     
-        <% if (typeof message !== "undefined") { %>
-        <div class="error-message"><%= message %></div>
-        <% } %>
-        <br><br>
-    
-        <button class="btn btn-primary btn-block btn-large">Create account</button>
-    
-        <p class="account-message">
-            Do you already have an account?
-            <a href="/login">Login</a>
-        </p>
-    </form>
+          <input class="login-input" type="text" name="email" class="form-control" placeholder="Email" required>
 
-
-
+          <input class="login-input" id="password" type="password" name="password" placeholder="Your password" required>
+      
+          <% if (typeof message !== "undefined") { %>
+          <div class="error-message"><%= message %></div>
+          <% } %>
+          
+          <button class="btn">Create account</button>
+      
+          <p class="account-message">
+              Do you already have an account?
+              <a href="/login">Login</a>
+          </p>
+      </form>
+    </div>
+  <div class="container-signup">
   </div>
-
+  <!-- footer -->
+  <footer>
+    <p>Handy Furny © | 2018</p>
+  </footer><!-- /footer -->
 

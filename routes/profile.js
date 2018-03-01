@@ -7,7 +7,7 @@ const upload                = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }    = require ('connect-ensure-login');
 const bcrypt                = require ('bcrypt');
 const salt                  = bcrypt.genSaltSync(10);
-
+const Review                = require ('../models/Review.js')
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id)
@@ -19,11 +19,22 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
     User.findById(req.params.id)
       .then(user => {
         Item.find({_creator:req.params.id})
-          .then(items => res.render("user/profile",{user,items}))
+          .then(items =>{
+            Review.find({_userSeller:req.params.id})
+              .then(reviews => {
+                console.log(reviews)
+                User.findById(req.user._id)
+                .then(owner => {
+                  console.log(owner)
+                  res.render("user/profile",{user,items,reviews, owner})
+                })
+                .catch(err => res.render('error',{message:err}))                
+              })
+              .catch(err => res.render('error',{message:err}))
+          })
           .catch(err => res.render('error'));
       })
       .catch(err => res.render('error'));
-    
 });
 
 router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, next) => {

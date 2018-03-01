@@ -9,8 +9,9 @@ const userSchema = new Schema({
   //social login con passport
   facebookID  : { type: String},
   googleID    : { type: String},
-  favorite    :[{ type: Schema.Types.ObjectId, ref: 'Item', required: true  }],
-  location: {type: {type: String},coordinates:{type: [Number], default:[19.3978285, -99.1729289]}
+  location    : {type: {type: String},coordinates:{type: [Number], default:[19.3978285, -99.1729289]},
+  favorite    : [{ type: Schema.Types.ObjectId, ref: 'Item', required: true  }],
+  
 }
 });
 
