@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-<<<<<<< HEAD
-.layout-main{
-  /*background-image: url("/images/whitewoddBACK.jpg");*/
-    /*background-color:#c0ded9;*/
-}
-=======
->>>>>>> 6b972bdb9c21f800acf95d95b9c79e2c0e367b8d
 
 html, body {
   margin: 0;
@@ -360,7 +353,7 @@ footer p{
   margin:10px;
 }
 
-.item-container{
+/* .item-container{
   width:20%;
   display:flex;
   margin:10px;
@@ -370,11 +363,55 @@ footer p{
   border: #EDEFF1 2px solid;
   border-radius: 20%;
   box-sizing: border-box;
-}
+} */
 
 /* search-furny */
+#result-search-furny{
+  display:flex;
+  margin: 20px;
+  flex-direction: row;
+  justify-content:center;
+  align-content: center;
+  box-sizing: border-box;
+
+}
 
 .furny-info {
-  width: 300px;
+  width: 250px;
+  border: #EDEFF1 2px solid;
+  margin:10px;
+  text-align: center;
+}
+
+.resize {
+  width: 250px;
+}
+.container{
+  text-align: center;
+  width: 100vw;
+  min-height: 85vh;
+  display: flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  align-items:center;
+  box-sizing: border-box;
   
+}
+
+.list-products, .buy-sell-mylist{
+  text-align: center;
+  width: 100vw;
+  min-height: 85vh;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+
+.buy-sell-mylist h3 {
+  width: 100vw;
 }
