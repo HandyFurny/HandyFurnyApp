@@ -23,7 +23,6 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
           .catch(err => res.render('error'));
       })
       .catch(err => res.render('error'));
-    
 });
 
 router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, next) => {
