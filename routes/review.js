@@ -6,10 +6,7 @@ const router              = express.Router();
 
 router.get('/:id/review', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id)
-    .then(user => {
-      console.log('estoy en review')
-      res.render('user/review', { user })
-    })
+    .then(user => res.render('user/review', { user }))
     .catch(err => res.send('error', { message: err }));
 });
 
@@ -21,11 +18,8 @@ router.post('/:id/review', ensureLoggedIn('/'), (req, res, next)  =>{
     description   : req.body.description,
     rate          : req.body.rate
   });
-  console.log('estoy llegando')
   newReview.save()
-    .then(()=>{
-      res.redirect(`/user/${req.params.id}`)
-    })
+    .then(()=>  res.redirect(`/user/${req.params.id}`))
     .catch(err => res.render('error',{ message:err }));
 });
 
