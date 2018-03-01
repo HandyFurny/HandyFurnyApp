@@ -1,0 +1,10 @@
+<div class="review-form">
+    <form action="/review/<%= user._id %>/review" method="POST" id="new-tweet">
+    <label for="description">Review:</label>
+    <input type="text" name="description" maxlength="200"
+      placeholder="What's going on?" required>
+    <label for="rate">Rate me:</label>
+    <input type="number" name="rate" min="0" max="10" required>
+    <input class="button blue fright" type="submit" value="Post Review!">
+  </form>
+</div>

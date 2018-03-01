@@ -32,7 +32,7 @@ router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
   });
 
   newItem.save()
-    .then(res.redirect('/catalog/list'))
+    .then(()=>res.redirect('/catalog/list'))
     .catch(err => res.render('error'));
 });
 

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const reviewSchema = new Schema({
-  _ownerBuyer   : { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  _userSeller   : { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  _owner        : { type: String, required: true },
+  _userSeller   : { type: String, required: true },
   description   : { type: String, required: true },
   rate          : { type: Number, required: true },
 },{
