@@ -27,41 +27,56 @@
         </div>
     </section>
     <section>
+        
         <div class="new-items">
-
+                <h2>New furny</h2>
             <% if (items.length >= 10 ) { %>  
                 
             <%  for (var i = 0; i < 10; i++) {%> 
             <div class="new-items-card">
-                <p><%= items[i].created_at %></p>
+   
                 <img class="item-image" src="<%= items[i].itemPic %>">
                 <a class="title" href="/catalog/<%= items[i]._id %>">
                 <strong><%= items[i].title %></strong>
                 </a>
-                <span class="item-category"><%= items[i].category %></span>
+                <p class="item-category"><%= items[i].category %></p>
                 <div class="creator-info">
-                <span><img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>"><strong><%= items[i]._creator.username %></strong></span>
-            </div>
+                <img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>">
+                
+                <p><%= items[i]._creator.username %></p>
+                </div>
             <% } %>
             <% } else {%>
             
                 <%  items.forEach( item => {%> 
                     
                 <div class="new-items-card">
-                    <img class="item-image" src="<%= item.itemPic %>">
-                    <a class="title" href="/catalog/<%= item._id %>">
-                    <strong><%= item.title %></strong>
-                    </a>
-                    <span class="item-category"><%= item.category %></span>
-                    <div class="creator-info">
-                    <span><img class="user-profile-pic" src="<%= item._creator.profilePic %>"><strong><%= item._creator.username %></strong></span>
+
+                        <img class="item-image" src="<%= item.itemPic %>">
+                        <a class="title" href="/catalog/<%= item._id %>">
+                        <strong><%= item.title %></strong>
+                        </a>
+                        <p class="item-category"><%= item.category %></p>
+                        <div class="creator-info">
+                        <img class="user-profile-pic" src="<%= item._creator.profilePic %>">
+                        <a href="/user/<%= item._creator._id %>"><%= item._creator.username %></a>
                 </div>
                 <%})%> 
             <%} %>  
         </div>
+    </section> 
+    
+</div>
+<div>
+    <section class="search-furny">
+        <h2>What are you looking for?</h2>
+        <input id="search-furny-value" type="text" placeholder="type of furny">
+        <input id="search-furny-submit" type="submit">
+    </section>
+    <section id="result-search-furny">
+
     </section>
 </div>
-
 
 <script type="text/javascript">
     var items = <%- JSON.stringify(items) %>;
@@ -73,6 +88,8 @@
 
 <script type="text/javascript" src="javascripts/map/autocomplete.js"></script>
 <script type="text/javascript" src="javascripts/map/marks-items.js"></script>
+<script type="text/javascript" src="javascripts/catalog/search-item.js"></script>
+
 <script type="text/javascript" 
 src="javascripts/map/map.js"></script>
 
