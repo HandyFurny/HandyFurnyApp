@@ -43,7 +43,7 @@
               
                     <img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>">
                     
-                    <a><%= items[i]._creator.username %></a>
+                    <a href="/user/<%= items[i]._creator._id %>"><%= items[i]._creator.username %></a>
                 </div>  
             </div>
             <% } %>
@@ -59,10 +59,11 @@
                         <strong><%= item.title %></strong>
                         </a>
                         <p class="item-category"><%= item.category %></p>
-                    
-                        <img class="user-profile-pic" src="<%= item._creator.profilePic %>">
+                        <div class="item-user-info">
+                            <img class="user-profile-pic" src="<%= item._creator.profilePic %>">
                         
-                        <a><%= item._creator.username %></a>
+                            <a href="/user/<%= item._creator._id %>"><%= item._creator.username %></a>
+                        </div>
                     </div>  
                 </div>
                 <%})%> 
