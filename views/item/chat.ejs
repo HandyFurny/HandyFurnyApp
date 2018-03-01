@@ -37,17 +37,13 @@ y la información del seller y el chat y la lista de los otros items que quiero 
      $(function () {
        var socket = io().connect('http://localhost:3000');
        $('form').submit(function(){
-        // console.log(item)
-        //  var msgtoSocketIO={
-        //    text:$('#m').val(),
-        //    itemID:item._id
-        //  }
-
+      
           var msgtoSocketIO={
            text:$('#m').val(),
            itemID:"<%=item._id%>",
-           username:"<%=user.username%>",
-           _id:"<%=user._id%>"
+           username1:"<%=user.username%>",
+           user1_id:"<%=user._id%>",
+           user2_id:"<%=item._creator._id%>"
          };
 
          console.log("entro a mandar la informacion")
