@@ -6,6 +6,7 @@ const User                = require ('../models/User.js');
 const upload              = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }  = require ('connect-ensure-login');
 const router              = express.Router();
+const { checkOwnership }  = require ('../middlewares/currentUser.js')
 
 
 router.get('/new', (req, res, next) =>{
