@@ -13,20 +13,21 @@
     </div>
 </nav>
 <div class="container">
-  <div class="creator-info">
-    <h2><%= user.username %></h2>
-    <img class="user-profile-pic" src="<%= user.profilePic %>">
-    <p><%= user.email%></p>
-    <p>Current direccion: [<%= user.location.coordinates %>]</p>
+  <div class="profile-info">
+    <div>
+        <img class="user-pic-xl" src="<%= user.profilePic %>">
+    </div>
+    <div>
+        <h2><%= user.username %></h2>
+        <p><%= user.email%></p>
+        <p>Current direccion: [<%= user.location.coordinates %>]</p>
+        <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
+        <form action="/user/<%= user._id %>/delete" method="POST">
+          <button class="btn-delete" type="submit">Delete User</button>
+        </form>
+  
+    </div>
   </div>
-
-
-      <a class="edit-user-button" href="/user/<%= user._id %>/edit">Edit your profile</a>
-      <form action="/user/<%= user._id %>/delete" method="POST">
-        <button type="submit">Delete User</button>
-      </form>
-
-
 
 <div class="buy-sell-mylist">
 
@@ -52,30 +53,32 @@
       <%}%>
     </div>
 </div>   
-<% if (user._id===owner._id){%>
+
 <div class="sell-buy-mylist">
-  <div>
-    <!-- SOLO SI YO SOY EL CURRENT USER DEBE APARECER LO DE ABAJO -->
-    <h3>I'm interested in: </h3>
+    
     <% if (owner.favorite.length >= 1) {%>
+      <h3>I'm interested in: </h3>
     <% owner.favorite.forEach( favorite => {%>
-    <div>
-      <img src="<%= favorite.itemPic %>">
-      <h2><%= favorite.title %></h2>
-      <p><%= favorite.category %></p>
-      <p>$ <%= favorite.price %>.00</p>
-    </div>
-    <%}) %> 
+      <div class="furny-info">
+          <div>
+            <img class="resize item-image" src="<%= favorite.itemPic  %>">
+          </div>
+          <div>
+              <a class="title" href="/catalog/<%= favorite._id %>">
+                <strong><%= favorite.title %></strong>
+                </a>
+                <p class="item-category">  <i> <%= favorite.category %></i></p>
+                <div class="price"><b>$ <%= favorite.price %>.00</b></div>  
+          </div>
+        </div>
+    <%})%>
     <%} else {%>
         <div>
         </div>
     <%}%>
-  </div>
-</div>
-<%}%>
 
-
-</div>
+ </div>
+   
 <div class="reviews-list">
     <h3>User Reviews!</h3>
     <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
