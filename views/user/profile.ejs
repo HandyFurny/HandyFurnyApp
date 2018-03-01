@@ -13,17 +13,21 @@
     </div>
 </nav>
 <div class="container">
-  <div class="creator-info">
-    <h2><%= user.username %></h2>
-    <img class="user-profile-pic" src="<%= user.profilePic %>">
-    <p><%= user.email%></p>
-    <p>Current direccion: [<%= user.location.coordinates %>]</p>
+  <div class="profile-info">
+    <div>
+        <img class="user-pic-xl" src="<%= user.profilePic %>">
+    </div>
+    <div>
+        <h2><%= user.username %></h2>
+        <p><%= user.email%></p>
+        <p>Current direccion: [<%= user.location.coordinates %>]</p>
+    </div>
   </div>
 
 
-      <a class="edit-user-button" href="/user/<%= user._id %>/edit">Edit your profile</a>
+      <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
       <form action="/user/<%= user._id %>/delete" method="POST">
-        <button type="submit">Delete User</button>
+        <button class="btn" type="submit">Delete User</button>
       </form>
 
 
@@ -74,7 +78,6 @@
   
         <%}%>
       </div>   
-
 </div>
 <div class="reviews-list">
     <h3>User Reviews!</h3>
