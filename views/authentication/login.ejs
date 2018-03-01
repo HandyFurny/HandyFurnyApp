@@ -1,9 +1,19 @@
-
-
-
-
-
-    <div class="login">
+ <!-- nav -->
+ <nav>
+    <div>
+        <h3>Handy Furny</h3>
+    </div>
+    <div>
+        <ul class="nav">
+        <li><a href="/" >Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/login">Log In</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        </ul>
+    </div>
+  </nav> <!-- /nav -->
+  <div class="container-header">
+    <div class="background-header">
         <h1>Login</h1>
         <form action="/login" method="POST">
             <input class="login-input" type="text" name="username" placeholder="Username" required="required" />
@@ -12,10 +22,19 @@
                 <div class="error-message"><%= message %></div>
             <% } %>
             <br>
-            <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+            <button type="submit" class="btn">Log In</button>
         </form>
+        <p class="account-message">
+            Don't have an account?
+            <a href="/signup">Sign Up</a>
+        </p>
     </div>
-
+    <div class="container-login">
+    </div>
+    <!-- footer -->
+    <footer>
+        <p>Handy Furny © | 2018</p>
+    </footer><!-- /footer -->
 
 
 

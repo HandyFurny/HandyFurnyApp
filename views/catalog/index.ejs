@@ -12,6 +12,7 @@
         </ul>
     </div>
 </nav>
+<div>
 <div class="catalog">
     <section>
         <div>
@@ -27,11 +28,8 @@
         </div>
     </section>
     <section>
-        
-        <div class="new-items">
-                <h2>New furny</h2>
+            <h2>New furny</h2>
             <% if (items.length >= 10 ) { %>  
-                
             <%  for (var i = 0; i < 10; i++) {%> 
             <div class="new-items-card">
                 <div class="item-image-box">
@@ -42,35 +40,34 @@
                     <strong><%= items[i].title %></strong>
                     </a>
                     <p class="item-category"><%= items[i].category %></p>
-                    <div class="creator-info">
+              
                     <img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>">
                     
-                    <p><%= items[i]._creator.username %></p>
-                </div>
-                </div>
-                
-                
-                
+                    <a><%= items[i]._creator.username %></a>
+                </div>  
             </div>
             <% } %>
             <% } else {%>
             
                 <%  items.forEach( item => {%> 
-                    
                 <div class="new-items-card">
-
+                    <div class="item-image-box">
                         <img class="item-image" src="<%= item.itemPic %>">
+                    </div>
+                    <div class="item-info-box">
                         <a class="title" href="/catalog/<%= item._id %>">
                         <strong><%= item.title %></strong>
                         </a>
                         <p class="item-category"><%= item.category %></p>
-                        <div class="creator-info">
+                    
                         <img class="user-profile-pic" src="<%= item._creator.profilePic %>">
-                        <a href="/user/<%= item._creator._id %>"><%= item._creator.username %></a>
+                        
+                        <a><%= item._creator.username %></a>
+                    </div>  
                 </div>
                 <%})%> 
             <%} %>  
-        </div>
+   
     </section> 
     
 </div>
@@ -84,7 +81,10 @@
 
     </section>
 </div>
-
+</div>
+<footer>
+    <p>Handy Furny © | 2018</p>
+</footer><!-- /footer -->
 <script type="text/javascript">
     var items = <%- JSON.stringify(items) %>;
 </script>
