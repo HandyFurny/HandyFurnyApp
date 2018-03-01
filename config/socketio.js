@@ -15,6 +15,10 @@ module.exports = (app) =>{
     //     io.emit('chat message', msg);
     //   });
 
+   
+
+
+
     socket.on('chat message', function (data) {
       console.log(`Mensaje recibido, reenviando(back):`, data);
      //console.log(socket);
@@ -28,10 +32,10 @@ module.exports = (app) =>{
       if (!doc) {
         // SI NO EXISTE CHAT ENTRE USUARIOS ME LO CREA
         console.log("no lo encontre")
-        var frase=data.text;
-        console.log(frase);
+        var m=data.text;
+       
         var newChat= new Chat({
-          messages:[frase],
+          messages:[data.username1+": "+m],
           _itemID:data.itemID,
           _Buyer:data.user1_id,
           _Seller:data.user2_id
@@ -48,8 +52,9 @@ module.exports = (app) =>{
     
       }else{
         // SI EXISTE CHAT ME AGREGA EL MENSAJE
-      
-      Chat.findByIdAndUpdate(doc._id, {$push: {messages: data.text}}, function (err, data){
+      console.log(data.username1+": "+data.text);
+      Chat.findByIdAndUpdate(doc._id, {$push: {messages: data.username1+": "+data.text}}, function (err, data){
+          console.log("este es mi mensaje"+data.messages);
           if (err )console.log(err)
           console.log("conseguido!!!")
       })
