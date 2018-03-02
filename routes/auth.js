@@ -15,11 +15,11 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
  }));
 
 //login
-router.get("/login", ensureLoggedOut(), (req,res)=>{
+router.get("/login", (req,res)=>{
     res.render("authentication/login", {"message":req.flash("error")});
  });
  
- router.post("/login", ensureLoggedOut(), passport.authenticate("local", {
+ router.post("/login", passport.authenticate("local", {
      successRedirect: "/catalog",
      failureRedirect: "/login",
      failureFlash: true,
@@ -27,11 +27,11 @@ router.get("/login", ensureLoggedOut(), (req,res)=>{
  }));
 
  
- router.get("/signup", ensureLoggedOut(), (req,res, next)=>{
+ router.get("/signup", (req,res, next)=>{
      res.render("authentication/signup");
  })
  
- .post("/signup", ensureLoggedOut(), (req,res,next)=>{
+ .post("/signup", (req,res,next)=>{
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
