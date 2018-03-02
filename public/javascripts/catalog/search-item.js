@@ -12,7 +12,7 @@ document.getElementById('search-furny-submit').onclick = function(){
                     }
                 })
             })
-            console.log(arrChar)
+
             var content = '<div class="your-search"><h2 class="your-search">Your search:</h2></div>'
             arrChar.forEach(char => { 
                 content += `

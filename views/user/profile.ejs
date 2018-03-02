@@ -12,9 +12,12 @@
         </ul>
     </div>
 </nav>
-<div class="container">
+
+<section>
+
+<div class="container background">
   <div class="profile-info">
-    <div>
+    <div class="edit-profile-container">
         <img class="user-pic-xl" src="<%= user.profilePic %>">
         <div>
             <h2><%= user.username %></h2>
@@ -28,7 +31,8 @@
             <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
             
             <form action="/user/<%= user._id %>/delete" method="POST">
-              <button class="btn-delete" type="submit">Delete User</button>
+            
+              <button class="btn-delete" type="submit">   <i class=“far fa-trash-alt”>X</i></button>
             </form>
             <% }%>
         </div>
@@ -89,7 +93,9 @@
  <!-- review -->
  <div class="reviews-list">
     <h3>User Reviews!</h3>
-    <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
+    <% if (user.username !== owner.username) {  %> 
+    <p><a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a><p>
+    <%}%>
   <div>
     <% if (reviews.length >= 1) {%>
     <% reviews.forEach( review => {%>
@@ -103,7 +109,7 @@
     <%} else {%>
         <div>
         </div>
-    <%}%>
+    <%}%> 
   </div>
 </div>
 </div>  

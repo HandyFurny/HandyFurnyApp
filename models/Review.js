@@ -12,16 +12,3 @@ const reviewSchema = new Schema({
 });
 
 module.exports = mongoose.model('Review', reviewSchema);
-
-//Review.find({_userSeller:req.params.id})
-// .populate("_userSeller")
-// .populate("_owner")
-// .then(reviews => {
-//   console.log(reviews)  
-//   Item.find({_creator:req.params.id})
-//     .then(items =>{
-//       res.render("user/profile",{user,items,reviews, owner})
-//       })
-//       .catch(err => res.render('error'));        
-// })
-// .catch(err => res.render('error',{message:err}))

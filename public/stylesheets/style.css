@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 a {
-  color: #57BEAC;
+  color: rgb(182,240,230);
 }
 
 html, body {
@@ -114,7 +114,7 @@ h1 {
   text-align: center;
   font-size: 18px;
   height: 40px;
-  background-color: #57BEAC;
+  background-color: rgb(182,240,230);
 }
 
 
@@ -189,7 +189,7 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  background: #57BEAC;
+  background: rgb(182,240,230);
 }
 .catalog section:nth-child(1) h1 {
   color: white;
@@ -290,7 +290,7 @@ footer p{
       margin: 0; 
       box-sizing: border-box;
       border-radius: 20%;
-      border:1p #57BEAC dotted ; 
+      border:1p rgb(182,240,230) dotted ; 
       padding: 10px; 
       width: 90%; 
       margin-right: .5%;
@@ -299,7 +299,7 @@ footer p{
       margin: 0; 
       box-sizing: border-box;
       width: 9%;
-       background: rgb(36, 206, 169);
+       background: rgb(182,240,230);
       border: none;
        padding: 10px; }
     #messages { 
@@ -491,6 +491,7 @@ footer p{
 }
 
 .profile-info {
+  margin-top:20px;
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -501,7 +502,7 @@ footer p{
 .btn-delete {
   border: white solid 2px;
   border-radius: 25px;
-  width: 200px;
+  width: 40px;
   color: white;
   text-decoration-line: none;
   text-align: center;
@@ -519,7 +520,7 @@ footer p{
   text-align: center;
   font-size: 14px;
   height: 40px;
-  background-color: #57BEAC;
+  background-color: rgb(182,240,230);
 }
 
 
@@ -552,7 +553,7 @@ footer p{
 
 .new-item-container{
   background-color:  rgb(182, 240, 230) ;
-  color:white;
+  color:white ;
   min-height:400px;
   display:flex;
   justify-content: center;
@@ -562,6 +563,19 @@ footer p{
   border:white 2px solid;
   border-radius: 10%;
 }
+
+.review{
+  background-color:  rgb(182, 240, 230) ;
+  color:white;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border:white 2px solid;
+  border-radius: 10%;
+  margin:50px auto;
+}
+
 .new-item-select{
   border: white solid 2px;
   border-radius: 25px;
@@ -584,11 +598,11 @@ footer p{
   text-align: center;
   font-size: 18px;
   height: 40px;
-  background-color: #57BEAC;
+  background-color:  rgb(182, 240, 230);
 }
 
 .new{
-  background-color: #57BEAC;
+  background-color:  rgb(182, 240, 230)C;
   margin:0;
   padding:0;
   height:85vh;
@@ -597,7 +611,7 @@ footer p{
 }
 
 .green{
-  color:#57BEAC;
+  color:rgb(182,240,230);
 }
 
 .img-and-price{
@@ -618,10 +632,11 @@ footer p{
 
 .background-color{
   background-color:rgb(182, 240, 230);
+
 }
 
 .edit-profile-container{
-  background-color:rgb(182, 240, 230);
+  background-color:white;
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -629,6 +644,7 @@ footer p{
   align-items: center;
   max-width: 500px;
   border-radius: 15%;
+  padding:20px;
 }
 .container-catalog{
   text-align: center;
@@ -644,9 +660,29 @@ footer p{
   background-size: cover;
  }
 
+ .main-title{
+   text-align: left;
+   font-size: 5ev;
+ }
 
+ .single-view{
+  height: 85vh;
+ }
 
- @media (max-width:400px){
+ .center-text{
+   text-align: center;  
+ }
+
+ .furny-info-single {
+  width: 400px;
+  border:   rgb(182, 240, 230) 2px solid;
+  margin:10px;
+  text-align: center;
+  background-color: #EDEFF1;
+  min-height:350px;
+}
+
+@media (max-width:400px){
  
   .background-pics{
     visibility: hidden;
@@ -678,18 +714,105 @@ footer p{
     margin: 0;
     display: block;
   }
-  .catalog{
-    margin:0;
-  }
-  .container-catalog{
-    padding: 0;
-  }
-  .container-catalog section:nth-child(1){
-   margin: 40px 0;
-   padding: 0;
-  }
+ 
 
   .container-catalog section:nth-child(2){
-    width: 100%;
+    width: 100vw;
   }
+  nav{
+    padding: 10px;
+  }
+  nav div {
+    display: block;
+
+  }
+  .container-catalog{
+    background: white;
+  }
+
+  #search-box{
+    width: 200px;
+  }
+
+  #map, #search-box {
+    width: 250px;
+  }
+  .catalog{
+    margin: 0;
+  }
+  .catalog section:nth-child(1){
+    margin-top: 150px;
+    width: 90vw;
+  }
+  .catalog  li{
+    display: block;
+  }
+  .search-furny {
+    margin-top: 150px;
+  }
+  .catalog section:nth-child(2) h2 {
+    
+    width: 100vw;
+  }
+  .background {
+    background: white;
+   
+  }
+  .new {
+    padding: 5px;
+  }
+  .new-item-container{
+    margin-top: 100px;
+    width: 90vw;
+  }
+  .new-item-container{
+    border-radius: 0;
+    min-height:600px;
+    text-align: center;
+  }
+  .input-width, .input-movil {
+    width: 230px;
+  }
+  h3 {
+   text-align: center;
+   box-sizing: border-box;
+   padding: 0 10px;
+  }
+  footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:30px;
+  }
+  .container {
+    margin-top: 150px;
+  }
+  .btn{
+    margin: 5px;
+    padding: 5px;
+    display: block;
+    height: inherit;
+  }
+  .edit-profile-container{
+    background: rgb(182,240,230);
+  
+  }
+  .edit-profile-container{
+    border-radius: 0;
+    text-align: center;
+  }
+  .new-item-container {
+    background: white;
+  }
+  .new-item-container h2{
+    width: 100vw;
+    background: rgb(182,240,230);
+    margin:0;
+    padding: 10px 0 0 0;
+  }
+  .furny-info{
+    border: #F3F5F7 solid 2px;
+  }
+
   }
