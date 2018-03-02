@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+a {
+  color: #57BEAC;
+}
 
 html, body {
   margin: 0;
@@ -20,19 +23,19 @@ nav{
   justify-content: space-around;
 }
 
-nav div:nth-child(2) ul {
+nav .nav-li ul {
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
   align-items:center;
 }
 
-nav div:nth-child(2) ul li {
+nav .nav-li ul li {
   margin: 20px;
   list-style:none;
 }
 
-nav div:nth-child(2) ul li a {
+nav .nav-li ul li a {
 text-decoration-line: none;
 color: #4A4A4A;
 }
@@ -183,7 +186,7 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  
+  color: white;
 }
 .container{
   min-height: 100vw;
@@ -209,7 +212,7 @@ footer p{
 /* map */
 #map {
   height: 300px;
-  width: 35vw;
+  width: 50vw;
   
  }
 
@@ -486,7 +489,14 @@ footer p{
   background-color: #F56776;
 }
 
-.search-furny-value {
-  width: 400px;
-  display: block;
+.btn-search {
+  border: white solid 2px;
+  border-radius: 25px;
+  width: 100px;
+  color: white;
+  text-decoration-line: none;
+  text-align: center;
+  font-size: 14px;
+  height: 40px;
+  background-color: #57BEAC;
 }
