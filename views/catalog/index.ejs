@@ -22,12 +22,13 @@
             <div>
                 <h1>Discover the people who are selling furniture</h1>
             </div>
-            <div class="nav-map">
-                <form action="" method="post">
-                    <input id="search-box" type="text" name="where" placeholder="Search by zone">
-                </form>
-            </div>
+            
             <div>
+                <div class="nav-map">
+                    <form action="" method="post">
+                        <input id="search-box" type="text" name="where" placeholder="Search by zone">
+                    </form>
+                </div>
                 <div id="map"></div>
             </div>
         </section>
@@ -41,7 +42,7 @@
                     </div>
                     <div class="item-info-box">
                         <a class="title" href="/catalog/<%= items[i]._id %>">
-                        <strong><%= items[i].title %></strong>
+                        <h2><%= items[i].title %></h2>
                         </a>
                         <p class="item-category"><%= items[i].category %></p>
                 
@@ -77,14 +78,16 @@
         </section> 
         
     </div>
+  
     <div>
         <section class="search-furny">
-            <h2>Your search:</h2>
+            
         </section>
         <section id="result-search-furny">
-
+            
         </section>
     </div>
+
 <footer>
     <p>Handy Furny © | 2018</p>
 </footer><!-- /footer -->
