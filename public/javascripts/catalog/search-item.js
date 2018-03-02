@@ -1,9 +1,11 @@
+
 $(document).ready( () => {
+    console.log(env)
 document.getElementById('search-furny-submit').onclick = function(){
     console.log("pulsado!!")
     var val = $("#search-furny-value").val();
     console.log(val)
-    axios.get("http://localhost:3000/catalog/api")
+    axios.get(`${env}/catalog/api`)
         .then(response => {
             console.log(response.data)
             var arrChar = []
