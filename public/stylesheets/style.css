@@ -644,7 +644,7 @@ footer p{
 }
 
 .edit-profile-container{
-  background-color:white;
+  
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -863,7 +863,9 @@ footer p{
   .furny-info{
     border: #F3F5F7 solid 2px;
   }
-
+    .furny-info-single{
+      width: 230px;
+    }
   }
   /* display:flex;
   justify-content: flex-start;
