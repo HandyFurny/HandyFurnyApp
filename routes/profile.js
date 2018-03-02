@@ -60,4 +60,3 @@ User.findByIdAndRemove(id)
 });
 
 module.exports = router;
-  
