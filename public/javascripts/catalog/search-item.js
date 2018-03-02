@@ -12,12 +12,17 @@ document.getElementById('search-furny-submit').onclick = function(){
                     }
                 })
             })
+<<<<<<< HEAD
             var content = ''
+=======
+            console.log(arrChar)
+            var content = '<div class="your-search"><h2 class="your-search">Your search:</h2></div>'
+>>>>>>> 96633441b38a5855b7a57c66b468036fc0f1cdba
             arrChar.forEach(char => { 
                 content += `
                 <div class="furny-info">
                     <img class="resize item-image" src="${char.itemPic}">
-                    <a href="/catalog/${char._id}"><strong>${char.title}</strong></a>
+                    <a class="title" href="/catalog/${char._id}"><strong>${char.title}</strong></a>
                     <p class="item-category">${char.category}</p>
                     <div class="price"><b>$ ${char.price }.00</b></div>
                     <div class="creator-info">

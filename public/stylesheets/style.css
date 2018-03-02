@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+a {
+  color: #57BEAC;
+}
 
 html, body {
   margin: 0;
@@ -20,19 +23,19 @@ nav{
   justify-content: space-around;
 }
 
-nav div:nth-child(2) ul {
+nav .nav-li ul {
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
   align-items:center;
 }
 
-nav div:nth-child(2) ul li {
+nav .nav-li ul li {
   margin: 20px;
   list-style:none;
 }
 
-nav div:nth-child(2) ul li a {
+nav .nav-li ul li a {
 text-decoration-line: none;
 color: #4A4A4A;
 }
@@ -164,17 +167,17 @@ footer p{
 
 }
 .catalog {
-  width: 100vw;
-  background: #57BEAC;
+  width: 90vw;
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
   align-items: flex-start;
   justify-content: space-between;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 .catalog section:nth-child(1){
-  width: 65vw;
+  width: 68vw;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -183,13 +186,17 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  
+  background: #57BEAC;
 }
+.catalog section:nth-child(1) h1 {
+  color: white;
+}
+
 .container{
   min-height: 100vw;
 }
 .catalog section:nth-child(2) {
-  width: 30vw;
+  width: 20vw;
   background: #F4F5F7;
   height: 500px;
   display: flex;
@@ -209,12 +216,14 @@ footer p{
 /* map */
 #map {
   height: 300px;
-  width: 35vw;
+  width: 60vw;
   
  }
 
+
+
  .nav-map{
-   width: 700px;
+   width: 500px;
    text-align: center;
    margin-bottom: 20px;
    /* border-radius: 25px; */
@@ -225,7 +234,7 @@ footer p{
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  justify-content: center;
+  /* //justify-content: center; */
  }
 
  .nav-map div, select, input, button {
@@ -234,7 +243,8 @@ footer p{
 
  .nav-map form input {
    width: 300px;
-   margin-top: 20px; 
+   margin-top: 20px;
+  
  }
 
 
@@ -335,7 +345,7 @@ footer p{
  
 
  .new-items-card {
-  width: 260px;
+  width: 265px;
   border: #EDEFF1 solid 2px;
   display: flex;
   flex-direction:row;
@@ -343,7 +353,11 @@ footer p{
   flex-wrap:wrap;
   align-items:center;
   box-sizing: border-box;
- 
+  padding: 5px;
+  background-color: white;
+ }
+ .title{
+  font-size: 20px;
  }
   /* .chat-form{
     display:flex;
@@ -394,7 +408,7 @@ footer p{
 }
 .search-furny h2 {
   width: 100vw;
-  text-align: center;
+  margin: 5vw;
 }
 
 .container{
@@ -412,6 +426,7 @@ footer p{
   margin: 20px;
   flex-direction: row;
   justify-content:center;
+  flex-wrap:wrap;
   align-content: center;
   box-sizing: border-box;
 
@@ -486,7 +501,19 @@ footer p{
   background-color: #F56776;
 }
 
-.search-furny-value {
-  width: 400px;
-  display: block;
+.btn-search {
+  border: white solid 2px;
+  border-radius: 25px;
+  width: 100px;
+  color: white;
+  text-decoration-line: none;
+  text-align: center;
+  font-size: 14px;
+  height: 40px;
+  background-color: #57BEAC;
+}
+
+.your-search {
+  width: 90vw;
+  margin: 0 20px;
 }

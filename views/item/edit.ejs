@@ -4,28 +4,21 @@
     <form action="/catalog/<%= item._id %>" method="post"  enctype="multipart/form-data">
       <div>
         <label>Category</label><br>
-        <select class="login-input"name="category" id="category">
+        <select class="edit-item-form "name="category" id="category">
           <% types.forEach((category) => { %>
             <option type="text" value="<%= category %>"><%= category %></option>
           <%  }) %>
         </select>
-      </div>
-      <div>
-       
-        <input class="login-input" placeholder="What are you selling?"type="text" name="title" required>
-      </div>
-      <div>
+      
     
-        <textarea class ="login-input" placeholder="Describe your item in a catchy and wholesome way."name="description" required></textarea>
-      </div>
-      <div>
-
-        <input class ="login-input" placeholder="Set a fair price" type="number" name="price" required>
-      </div>
+       
+        <input class="edit-item-form " placeholder="What are you selling?"type="text" name="title" required>
+        <textarea class ="edit-item-form " placeholder="Describe your item in a catchy and wholesome way."name="description" required></textarea>
+        <input class ="edit-item-form " placeholder="Set a fair price" type="number" name="price" required>
       <h3>Change photo of your furny!</h3>
-        <input class ="login-input" type="file" name="itemPic">
-      <div>
+        <input class ="edit-item-form " type="file" name="itemPic">
+      
         <button class="btn" type="submit">Upload Product</button>
-      </div>
+    </div>
     </form>
 </div>

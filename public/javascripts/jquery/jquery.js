@@ -1,8 +1,17 @@
 
 $(document).ready(function() {
+    $('#search-box').keydown(function(event){
+        if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+        }
+    });
 
-    // $('.nav li').click(function(){
-    //     $(this).addClass('active').siblings().removeClass('active');
-    // }) 
+    $('#search-box-user').keydown(function(event){
+        if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+        }
+    });
 
 });
