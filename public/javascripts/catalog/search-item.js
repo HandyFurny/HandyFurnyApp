@@ -1,13 +1,8 @@
-
 $(document).ready( () => {
-    console.log(env)
 document.getElementById('search-furny-submit').onclick = function(){
-    console.log("pulsado!!")
     var val = $("#search-furny-value").val();
-    console.log(val)
     axios.get(`${env}/catalog/api`)
         .then(response => {
-            console.log(response.data)
             var arrChar = []
             response.data.forEach(function(element){
                 let words=element.title.split(" ");
@@ -17,8 +12,12 @@ document.getElementById('search-furny-submit').onclick = function(){
                     }
                 })
             })
+<<<<<<< HEAD
+            var content = ''
+=======
             console.log(arrChar)
             var content = '<div class="your-search"><h2 class="your-search">Your search:</h2></div>'
+>>>>>>> 96633441b38a5855b7a57c66b468036fc0f1cdba
             arrChar.forEach(char => { 
                 content += `
                 <div class="furny-info">

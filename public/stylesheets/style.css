@@ -513,7 +513,6 @@ footer p{
   background-color: #57BEAC;
 }
 
-<<<<<<< HEAD
 
 .new-item-form{
   border: white solid 2px;
@@ -594,15 +593,13 @@ footer p{
  flex-direction: row;
  align-items: center;
 }
-
 .user-profile-pic-edit{
   width: 40px;
   height: 40px;
   border: #EDEFF1 solid 2px;
   border-radius: 20%;
-=======
+}
 .your-search {
   width: 90vw;
   margin: 0 20px;
->>>>>>> 96633441b38a5855b7a57c66b468036fc0f1cdba
 }

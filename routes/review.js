@@ -7,7 +7,7 @@ const router              = express.Router();
 router.get('/:id/review', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id)
     .then(user => res.render('user/review', { user }))
-    .catch(err => res.send('error', { message: err }));
+    .catch(err => res.send('error'));
 });
 
 router.post('/:id/review', ensureLoggedIn('/'), (req, res, next)  =>{
@@ -20,7 +20,7 @@ router.post('/:id/review', ensureLoggedIn('/'), (req, res, next)  =>{
   });
   newReview.save()
     .then(()=>  res.redirect(`/user/${req.params.id}`))
-    .catch(err => res.render('error',{ message:err }));
+    .catch(err => res.render('error'));
 });
 
 module.exports = router;
