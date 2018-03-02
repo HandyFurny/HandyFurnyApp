@@ -12,22 +12,34 @@
         </ul>
     </div>
 </nav>
-<div class="container">
+
+<section>
+
+<div class="container background">
   <div class="profile-info">
-    <div>
+    <div class="edit-profile-container">
         <img class="user-pic-xl" src="<%= user.profilePic %>">
+        <div>
+            <h2><%= user.username %></h2>
+            <p><%= user.email%></p>
+            <!-- <p>Current direccion: [<%= user.location.coordinates %>]</p> -->
+            <div class="direction-user">
+                <p>Direction: </p>
+                <div id="map-dir"></div>
+            </div>
+            <% if (user.username === owner.username) {  %> 
+            <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
+            
+            <form action="/user/<%= user._id %>/delete" method="POST">
+            
+              <button class="btn-delete" type="submit">   <i class=“far fa-trash-alt”>X</i></button>
+            </form>
+            <% }%>
+        </div>
+        
     </div>
-    <div>
-        <h2><%= user.username %></h2>
-        <p><%= user.email%></p>
-        <p>Current direccion: [<%= user.location.coordinates %>]</p>
-        <% if (user.username === owner.username) {  %> 
-        <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
-        <form action="/user/<%= user._id %>/delete" method="POST">
-          <button class="btn-delete" type="submit">Delete User</button>
-        </form>
-        <% }%>
-    </div>
+    
+  
   </div>
  <!-- selling -->
 <div class="buy-sell-mylist">
@@ -104,4 +116,14 @@
 </div>
 <footer>
     <p>Handy Furny © | 2018</p>
+    
 </footer><!-- /footer -->
+<script type="text/javascript">
+  var user = <%-JSON.stringify(user)%>;
+
+</script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB141u84aG6yCZFhfNsd4CWj7lKdHmj8-k&libraries=places">
+</script>
+<script type="text/javascript" 
+src="/javascripts/map/map-dir.js"></script>

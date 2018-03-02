@@ -1,10 +1,36 @@
-<div class="review-form">
-    <form action="/review/<%= user._id %>/review" method="POST" id="new-tweet">
-    <label for="description">Review:</label>
-    <input type="text" name="description" maxlength="200"
-      placeholder="What's going on?" required>
-    <label for="rate">Rate me:</label>
-    <input type="number" name="rate" min="0" max="5" required>
-    <input class="button blue fright" type="submit" value="Post Review!">
-  </form>
-</div>
+
+
+<nav>
+    <div>
+        <h3>Handy Furny</h3>
+    </div>
+    <div class="nav-li">
+        <ul>
+            <li><a href="/catalog">Home</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/catalog/new">New Product</a></li>
+            <li><a href="/catalog/list">All Products</a> </li>
+            <li class="active" ><a href="/user/<%=user._id%>">Profile</a> </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="new background">
+
+    <div >
+        <form class="review" action="/review/<%= user._id %>/review" method="POST" id="new-tweet">
+        <label for="description">Review:</label>
+        <input placeholder="Give me a review to learn"class="new-item-select" type="text" name="description" maxlength="200"
+          placeholder="What's going on?" required>
+        <label for="rate">Rate me:</label>
+        <input placeholder="Rate me from 1 to 5"class="new-item-select" type="number" name="rate" min="0" max="5" required>
+        <input class="new-item-form green input-width" type="submit" value="Post Review!">
+      </form>
+    </div>
+    
+</section>
+
+<footer>
+    <p>Handy Furny © | 2018</p>
+    
+</footer><!-- /footer -->
