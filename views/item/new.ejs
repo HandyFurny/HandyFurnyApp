@@ -12,36 +12,47 @@
         </ul>
     </div>
 </nav>
-<div class="new-item-container">
-  <h2>Post a new furny !!</h2>
-      <form action="/catalog/new" method="post"  enctype="multipart/form-data">
-        <div>
-          <label>Category</label><br>
-          <select name="category" id="category">
-            <% types.forEach((category) => { %>
-              <option type="text" value="<%= category %>"><%= category %></option>
-            <%  }) %>
-          </select>
-        </div>
-        <div>
-          <label>Title</label>
-          <input type="text" name="title" required>
-        </div>
-        <div>
-          <label>Description</label>
-          <textarea name="description" required></textarea>
-        </div>
-        <div>
-          <label>Price</label>
-          <input type="number" name="price" required>
-        </div>
-        <h3>Upload a photo of your furny!</h3>
-          <input type="file" name="itemPic">
-        <div>
-          <button type="submit">Upload Product</button>
-        </div>
-      </form>
-</div>
+
+<section class="new">
+
+    <div class="new-item-container">
+        <h2>Post a new furny !!</h2>
+            <form action="/catalog/new" method="post"  enctype="multipart/form-data">
+              <div>
+                <label>Category</label>
+                <select class="new-item-select"name="category" id="category">
+                  <% types.forEach((category) => { %>
+                    <option type="text" value="<%= category %>"><%= category %></option>
+                  <%  }) %>
+                </select>
+              </div>
+              <div>
+             
+                <input class="new-item-form input-width" placeholder="What are you selling?"type="text" name="title" required>
+              </div>
+              <div>
+               
+                <textarea class="new-item-form input-width textarea" name="description" placeholder="Describe your item in a catchy and wholesome way." required></textarea>
+              </div>
+              <div>
+               
+                <input class="new-item-form input-width" placeholder="Set a fair price!"  type="number" name="price" required>
+              </div>
+              <h3>Upload a photo of your furny!</h3>
+                <input class="new-item-form" type="file" name="itemPic">
+              <div>
+                <button class="new-item-form green input-width" type="submit">Upload Product</button>
+              </div>
+            </form>
+      </div>
+
+
+
+
+
+
+</section>
+
 <footer>
     <p>Handy Furny © | 2018</p>
 </footer><!-- /footer -->

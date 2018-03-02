@@ -1,24 +1,55 @@
-
-<div class="new-item-container">
-  <h2>Edit your furny info</h2>
-    <form action="/catalog/<%= item._id %>" method="post"  enctype="multipart/form-data">
-      <div>
-        <label>Category</label><br>
-        <select class="edit-item-form "name="category" id="category">
-          <% types.forEach((category) => { %>
-            <option type="text" value="<%= category %>"><%= category %></option>
-          <%  }) %>
-        </select>
-      
-    
-       
-        <input class="edit-item-form " placeholder="What are you selling?"type="text" name="title" required>
-        <textarea class ="edit-item-form " placeholder="Describe your item in a catchy and wholesome way."name="description" required></textarea>
-        <input class ="edit-item-form " placeholder="Set a fair price" type="number" name="price" required>
-      <h3>Change photo of your furny!</h3>
-        <input class ="edit-item-form " type="file" name="itemPic">
-      
-        <button class="btn" type="submit">Upload Product</button>
+<!-- nav -->
+ <nav>
+    <div>
+        <h3>Handy Furny</h3>
     </div>
-    </form>
-</div>
+    <div class="nav-li">
+        <ul>
+            <li><a href="/catalog">Home</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li><a  href="/catalog/new">New Product</a></li>
+            <li><a href="/catalog/list">All Products</a> </li>
+            
+        </ul>
+    </div>
+</nav>
+<section class="new">
+    <div class="new-item-container">
+        <h2>Edit your furny info</h2>
+          <form action="/catalog/<%= item._id %>" method="post"  enctype="multipart/form-data">
+            <div>
+              <label>Category</label>
+              <select class="new-item-select"name="category" id="category">
+                <% types.forEach((category) => { %>
+                  <option type="text" value="<%= category %>"><%= category %></option>
+                <%  }) %>
+              </select>
+            </div>
+            <div>
+             
+              <input class="new-item-form input-width " placeholder="What are you selling?"type="text" name="title" value="<%=item.title%>" required>
+            </div>
+            <div>
+          
+              <input type="textarea" class ="new-item-form input-width textarea"  placeholder="Describe your item shortly and catchy." name="description" value="<%=item.description%>" required></input>
+            </div>
+            <div class="img-and-price">
+              <input class ="new-item-form price"  " placeholder="Maybe a lower?" type="number" name="price" value="<%=item.price%>" required>
+              <img class="user-profile-pic-edit"src="<%=item.itemPic%>" alt="old pic">
+            </div>
+            <h3>Change photo of your furny!</h3>
+              <input value="<%=item.itemPic%>" class ="new-item-form nput-width" type="file" name="itemPic" required>
+            <div>
+              <button class="new-item-form input-width green" type="submit">Update Product</button>
+            </div>
+          </form>
+      </div>
+
+
+
+
+  
+</section>
+<footer>
+    <p>Handy Furny © | 2018</p>
+</footer><!-- /footer -->

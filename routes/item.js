@@ -14,7 +14,6 @@ router.get('/new', (req, res, next) =>{
 });
 
 router.get('/api', (req, res, next) =>{
-  console.log("entro a la busquedaaaaaa")
   Item.find({})
     .populate("_creator")
     .then(result => res.json(result))
