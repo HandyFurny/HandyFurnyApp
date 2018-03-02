@@ -28,13 +28,13 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
                 .then(owner => {                
                   res.render("user/profile",{user,items,reviews, owner})
                 })
-                .catch(err => res.render('error'))                
+                .catch(err => res.render('error', {message: err}))                
               })
-              .catch(err => res.render('error'))
+              .catch(err => res.render('error', {message: err}))
           })
-          .catch(err => res.render('error'));
+          .catch(err => res.render('error', {message: err}));
       })
-      .catch(err => res.render('error'));
+      .catch(err => res.render('error', {message: err}));
 });
 
 router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, next) => {
