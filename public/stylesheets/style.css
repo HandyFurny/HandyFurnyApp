@@ -209,7 +209,7 @@ footer p{
 .catalog section:nth-child(2) {
   width: 20vw;
   background: #F4F5F7;
-  height: 500px;
+  min-height: 500px;
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
@@ -847,7 +847,9 @@ footer p{
     height: inherit;
   }
 
-  
+  .catalog section:nth-child(2) {
+    min-height: 200px;
+  }
 
   .edit-profile-container{
     background: rgb(182,240,230);
@@ -866,9 +868,7 @@ footer p{
     margin:0;
     padding: 10px 0 0 0;
   }
-  .furny-info{
-    border: #F3F5F7 solid 2px;
-  }
+ 
     .furny-info-single{
       width: 230px;
     }
