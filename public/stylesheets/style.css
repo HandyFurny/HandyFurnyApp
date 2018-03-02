@@ -117,9 +117,11 @@ nav h3{
   width: 200px;
   color: white;
   text-decoration-line: none;
+  display: block;
   text-align: center;
   font-size: 18px;
-  height: 40px;
+  padding: 10px;
+  margin: 5px;
   background-color: rgb(132, 236, 219);
 }
 
@@ -224,6 +226,7 @@ footer p{
 
 /* map */
 #map {
+
   height: 300px;
   width: 60vw;
   
@@ -231,7 +234,7 @@ footer p{
  #map-dir {
   height: 70px;
   width: 200px;
-  
+  margin: 0 auto;
  }
 
 
@@ -843,6 +846,9 @@ footer p{
     display: block;
     height: inherit;
   }
+
+  
+
   .edit-profile-container{
     background: rgb(182,240,230);
   
