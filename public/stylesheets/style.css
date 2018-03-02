@@ -6,6 +6,7 @@ html, body {
   padding: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #4A4A4A;
+
 }
 
 nav{
@@ -235,7 +236,7 @@ footer p{
    width: 300px;
    margin-top: 20px; 
  }
-/*+++++  +++++++*/
+
 
 
   /*IMAGEN*/
@@ -405,18 +406,6 @@ footer p{
   margin:10px;
 }
 
-/* .item-container{
-  width:20%;
-  display:flex;
-  margin:10px;
-  flex-direction: row;
-  justify-content:center;
-  align-content: center;
-  border: #EDEFF1 2px solid;
-  border-radius: 20%;
-  box-sizing: border-box;
-} */
-
 /* search-furny */
 #result-search-furny{
   display:flex;
@@ -453,7 +442,7 @@ footer p{
 .list-products, .buy-sell-mylist{
   text-align: center;
   width: 100vw;
-  min-height: 85vh;
+  /* min-height: 85vh; */
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -461,11 +450,13 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 40px;
+  
 }
 
 
-.buy-sell-mylist h3 {
+.buy-sell-mylist h3, .reviews-list h3 {
   width: 100vw;
+  border-bottom: #EDEFF1 solid 2px;
 }
 
 .user-pic-xl {
@@ -493,4 +484,9 @@ footer p{
   font-size: 18px;
   height: 40px;
   background-color: #F56776;
+}
+
+.search-furny-value {
+  width: 400px;
+  display: block;
 }
