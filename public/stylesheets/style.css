@@ -236,7 +236,7 @@ footer p{
    width: 300px;
    margin-top: 20px; 
  }
-/*+++++  +++++++*/
+
 
 
   /*IMAGEN*/
@@ -406,18 +406,6 @@ footer p{
   margin:10px;
 }
 
-/* .item-container{
-  width:20%;
-  display:flex;
-  margin:10px;
-  flex-direction: row;
-  justify-content:center;
-  align-content: center;
-  border: #EDEFF1 2px solid;
-  border-radius: 20%;
-  box-sizing: border-box;
-} */
-
 /* search-furny */
 #result-search-furny{
   display:flex;
@@ -496,4 +484,9 @@ footer p{
   font-size: 18px;
   height: 40px;
   background-color: #F56776;
+}
+
+.search-furny-value {
+  width: 400px;
+  display: block;
 }

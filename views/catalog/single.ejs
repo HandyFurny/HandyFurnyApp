@@ -1,7 +1,19 @@
 
 
-<a class="home-button" href="/catalog">Home</a>
-<a class="home-button" href="/catalog/list">All Products</a>
+<nav>
+    <div>
+        <h3>Handy Furny</h3>
+    </div>
+    <div>
+        <ul>
+            <li><a href="/catalog">Home</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/catalog/new">New Product</a></li>
+            <li><a href="/catalog/list">All Products</a> </li>
+            <li><a href="/user/<%=user._id%>">Profile</a> </li>
+        </ul>
+    </div>
+</nav>
 
 <div class="creator-info">
   <a id="user-profile" href="/user/<%=item._creator._id%>">
@@ -34,6 +46,9 @@
 </div>
 
 <div id="fb-root"></div>
+
+
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -43,3 +58,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="fb-share-button" data-href="http://localhost:3000/catalog/<%=item._id%>" data-layout="button" data-size="small" data-mobile-iframe="false"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+
+<footer>
+    <p>Handy Furny © | 2018</p>
+</footer><!-- /footer -->
