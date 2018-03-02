@@ -18,12 +18,12 @@ document.getElementById('search-furny-submit').onclick = function(){
                 })
             })
             console.log(arrChar)
-            var content = ''
+            var content = '<div class="your-search"><h2 class="your-search">Your search:</h2></div>'
             arrChar.forEach(char => { 
                 content += `
                 <div class="furny-info">
                     <img class="resize item-image" src="${char.itemPic}">
-                    <a href="/catalog/${char._id}"><strong>${char.title}</strong></a>
+                    <a class="title" href="/catalog/${char._id}"><strong>${char.title}</strong></a>
                     <p class="item-category">${char.category}</p>
                     <div class="price"><b>$ ${char.price }.00</b></div>
                     <div class="creator-info">
