@@ -53,11 +53,16 @@ router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, ne
   .catch(err => res.render('error'));
 });
 
-router.post('/:id/delete', ensureLoggedIn('/'), checkOwnership , (req, res, next) => {
-const id = req.params.id;
-User.findByIdAndRemove(id)
-.then(user => res.redirect('/'))
-.catch(err => res.render('error'));
+router.post('/:id/delete', ensureLoggedIn('/'), (req, res, next) => {
+User.findByIdAndRemove(req.params.id)
+.then(() =>{
+  Item.find({})
+    .populate("_creator")
+    .remove()
+    .then(res.redirect('/'))
+    .catch(err => res.render('error'))
+  })
+  .catch(err => res.render('error'))
 });
 
 module.exports = router;

@@ -6,7 +6,6 @@ const userSchema = new Schema({
   username    : { type: String ,trim:true},
   password    : { type: String},
   profilePic  : { type: String, default: "/images/profile.jpg" },
-  //social login con passport
   facebookID  : { type: String},
   googleID    : { type: String},
   favorite    : [{ type: Schema.Types.ObjectId, ref: 'Item', required: true  }],

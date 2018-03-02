@@ -81,7 +81,9 @@
  <!-- review -->
  <div class="reviews-list">
     <h3>User Reviews!</h3>
-    <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
+    <% if (user.username !== owner.username) {  %> 
+    <p><a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a><p>
+    <%}%>
   <div>
     <% if (reviews.length >= 1) {%>
     <% reviews.forEach( review => {%>
@@ -95,7 +97,7 @@
     <%} else {%>
         <div>
         </div>
-    <%}%>
+    <%}%> 
   </div>
 </div>
 </div>  
