@@ -221,7 +221,11 @@ footer p{
   width: 60vw;
   
  }
-
+ #map-dir {
+  height: 70px;
+  width: 200px;
+  
+ }
 
 
  .nav-map{
@@ -625,3 +629,16 @@ footer p{
   max-width: 500px;
   border-radius: 15%;
 }
+.container-catalog{
+  text-align: center;
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: url(../images/background-wood.jpg) no-repeat center center;
+  background-size: cover;
+ }
