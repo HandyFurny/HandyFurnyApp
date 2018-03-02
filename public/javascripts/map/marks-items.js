@@ -1,8 +1,5 @@
-
 function markItems(map){
-        console.log(items)
         items.forEach(item => {
-        
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -27,8 +24,7 @@ function markItems(map){
           map: map,
           title: 'item'
         });
-
-   
+        
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });

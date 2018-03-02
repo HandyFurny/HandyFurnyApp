@@ -8,6 +8,7 @@ const { ensureLoggedIn }    = require ('connect-ensure-login');
 const bcrypt                = require ('bcrypt');
 const salt                  = bcrypt.genSaltSync(10);
 const Review                = require ('../models/Review.js')
+const {authorizeItem,checkOwnership}  = require ('../middlewares/currentUser.js')
 
 router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
   User.findById(req.params.id)
@@ -27,9 +28,9 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
                 .then(owner => {                
                   res.render("user/profile",{user,items,reviews, owner})
                 })
-                .catch(err => res.render('error',{message:err}))                
+                .catch(err => res.render('error'))                
               })
-              .catch(err => res.render('error',{message:err}))
+              .catch(err => res.render('error'))
           })
           .catch(err => res.render('error'));
       })
@@ -52,7 +53,7 @@ router.post('/:id', ensureLoggedIn('/'), upload.single('userPic'), (req, res, ne
   .catch(err => res.render('error'));
 });
 
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', ensureLoggedIn('/'), checkOwnership , (req, res, next) => {
 const id = req.params.id;
 User.findByIdAndRemove(id)
 .then(user => res.redirect('/'))

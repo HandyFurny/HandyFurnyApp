@@ -6,19 +6,16 @@ const User                = require ('../models/User.js');
 const upload              = multer  ({  dest: './public/uploads'});
 const { ensureLoggedIn }  = require ('connect-ensure-login');
 const router              = express.Router();
-const { checkOwnership }  = require ('../middlewares/currentUser.js')
+const {authorizeItem,checkOwnership}  = require ('../middlewares/currentUser.js')
 
-
-router.get('/new', (req, res, next) =>{
-  res.render('item/new', {types:  TYPES, user:req.user});
-});
-
-router.get('/api', (req, res, next) =>{
-  console.log("entro a la busquedaaaaaa")
+router.get('/api', ensureLoggedIn('/'), (req, res, next) =>{
   Item.find({})
     .populate("_creator")
     .then(result => res.json(result))
+});
 
+router.get('/new', ensureLoggedIn('/'), (req, res, next) =>{
+  res.render('item/new', {types:  TYPES, user:req.user});
 });
 
 router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, next)  =>{
@@ -37,28 +34,27 @@ router.post('/new', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
     .catch(err => res.render('error'));
 });
 
-router.get('/list', (req, res, next) => {
+router.get('/list', ensureLoggedIn('/'), (req, res, next) => {
   Item.find({})
     .populate("_creator")
-    .then(items =>  res.render('catalog/list', {items, user:req.user}))
+    .then(items =>  res.render('catalog/list', {items, user: req.user}))
     .catch(err => res.render('error'))
 });
 
-router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
-    userId = req.user._id
+router.get('/:id',  ensureLoggedIn('/'), checkOwnership , (req, res, next) => {
     Item.findById(req.params.id)
       .populate("_creator")
-      .then(result => res.render("catalog/single", { userId, item: result, user:req.user}))
+      .then(item => res.render("catalog/single", { item, user: req.user}))
       .catch(err => res.render('error'))
 });
 
-router.get('/:id/edit', ensureLoggedIn('/'),  (req, res, next) => {
+router.get('/:id/edit', ensureLoggedIn('/'), authorizeItem, (req, res, next) => {
     Item.findById(req.params.id)
     .then(item => res.render('item/edit', { item, types: TYPES }))
     .catch(err => res.render('error'))
 });
 
-router.post('/:id', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, next) => {
+router.post('/:id', ensureLoggedIn('/'), authorizeItem, upload.single('itemPic'), (req, res, next) => {
     const updates = {
       title         : req.body.title,
       description   : req.body.description,
@@ -72,7 +68,13 @@ router.post('/:id', ensureLoggedIn('/'), upload.single('itemPic'), (req, res, ne
     .catch(err => res.redirect('/catalog/'+req.params.id+'/edit'))
 });
 
-router.post('/:id/delete', (req, res, next) => {
+router.get('/:id/payment', ensureLoggedIn('/'),  (req, res, next) => {
+  Item.findById(req.params.id)
+  .then(item => res.render('item/payment', { item }))
+  .catch(err => res.render('error'))
+});
+
+router.post('/:id/delete', ensureLoggedIn('/'), authorizeItem, (req, res, next) => {
   const id = req.params.id;
   Item.findByIdAndRemove(id)
   .then(item => res.redirect('/catalog/list'))
@@ -81,7 +83,6 @@ router.post('/:id/delete', (req, res, next) => {
 
 /* Catalog index*/
 router.get('/', ensureLoggedIn('/'), (req, res, next) => {
-  console.log(process.env.web)
   Item.find({})
   .sort({created_at: -1})
   .populate("_creator")

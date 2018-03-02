@@ -1,10 +1,10 @@
-const express = require('express');
-const router  = express.Router();
-const passport = require ("passport")
+const express            = require('express');
+const router             = express.Router();
+const passport           = require ("passport")
 const User               = require('../models/User');
 const LocalStrategy      = require('passport-local').Strategy;
-const bcrypt = require("bcrypt");
-const salt = bcrypt.genSaltSync(10);
+const bcrypt             = require("bcrypt");
+const salt               = bcrypt.genSaltSync(10);
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
  //facebook login
@@ -15,11 +15,11 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
  }));
 
 //login
-router.get("/login", (req,res)=>{
+router.get("/login", ensureLoggedOut(), (req,res)=>{
     res.render("authentication/login", {"message":req.flash("error")});
  });
  
- router.post("/login", passport.authenticate("local", {
+ router.post("/login", ensureLoggedOut(), passport.authenticate("local", {
      successRedirect: "/catalog",
      failureRedirect: "/login",
      failureFlash: true,
@@ -27,11 +27,11 @@ router.get("/login", (req,res)=>{
  }));
 
  
- router.get("/signup", (req,res, next)=>{
+ router.get("/signup", ensureLoggedOut(), (req,res, next)=>{
      res.render("authentication/signup");
  })
  
- .post("/signup", (req,res,next)=>{
+ .post("/signup", ensureLoggedOut(), (req,res,next)=>{
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
@@ -63,7 +63,7 @@ router.get("/login", (req,res)=>{
  
  //logout
 
-    router.get("/logout", (req,res)=>{
+    router.get("/logout", ensureLoggedIn('/'), (req,res)=>{
         req.logout();
         res.redirect("/");
     });
