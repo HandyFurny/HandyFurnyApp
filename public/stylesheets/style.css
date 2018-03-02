@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 a {
-  color: rgb(182,240,230);
+  color: rgb(132, 236, 219);
 }
 
 html, body {
@@ -11,8 +11,6 @@ html, body {
   color: #4A4A4A;
 
 }
-
-
 
 nav{
   width: 100vw;
@@ -88,6 +86,11 @@ h1 {
   margin: 0;
 }
 
+nav h3{
+  margin-left:10px;
+  font-size:1.8rem;
+}
+
 .active {
   border-bottom: #4A4A4A solid 2px;
   font-weight: bold;
@@ -114,7 +117,7 @@ h1 {
   text-align: center;
   font-size: 18px;
   height: 40px;
-  background-color: rgb(182,240,230);
+  background-color: rgb(132, 236, 219);
 }
 
 
@@ -189,7 +192,7 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  background: rgb(182,240,230);
+  background: rgb(132, 236, 219);
 }
 .catalog section:nth-child(1) h1 {
   color: white;
@@ -268,9 +271,9 @@ footer p{
   }
   
   .chat{
-    background-color:rgb(182, 240, 230);
-    width:80%;
-    margin-left:100px;
+    background-color:rgb(132, 236, 219);
+    width:100%;
+    
     justify-content: center;
   }
   
@@ -278,38 +281,40 @@ footer p{
      width: 100px;
    }
   
-    .form-chat { background:rgb(182, 240, 230); 
+    .form-chat { background:rgb(132, 236, 219); 
       margin: 0; 
        box-sizing: border-box;
       padding: 3px; 
       position: fixed;
        bottom: 0;
-        width: 70%; }
+        width: 80%; }
 
     .form-chat-input { 
       margin: 0; 
       box-sizing: border-box;
       border-radius: 20%;
-      border:1p rgb(182,240,230) dotted ; 
+      border:1p rgb(132, 236, 219) dotted ; 
       padding: 10px; 
       width: 90%; 
       margin-right: .5%;
+      float: left;
      }
     .form-chat-button { 
       margin: 0; 
       box-sizing: border-box;
       width: 9%;
-       background: rgb(182,240,230);
+       background: rgb(132, 236, 219);
       border: none;
        padding: 10px; }
     #messages { 
-      margin: 0; 
+      margin-right:40px; 
       box-sizing: border-box;
       list-style-type: none;
        margin: 0; 
        padding: 0; }
     #messages li { 
       margin: 0; 
+      width:90%;
       box-sizing: border-box;
       padding: 5px 10px;
      }
@@ -441,7 +446,7 @@ footer p{
 
 .furny-info {
   width: 250px;
-  border:   rgb(182, 240, 230) 2px solid;
+  border:   rgb(132, 236, 219) 2px solid;
   margin:10px;
   text-align: center;
   background-color: #EDEFF1;
@@ -520,7 +525,7 @@ footer p{
   text-align: center;
   font-size: 14px;
   height: 40px;
-  background-color: rgb(182,240,230);
+  background-color: rgb(132,236,219);
 }
 
 
@@ -552,7 +557,7 @@ footer p{
 
 
 .new-item-container{
-  background-color:  rgb(182, 240, 230) ;
+  background-color:  rgb(132, 236, 219) ;
   color:white ;
   min-height:400px;
   display:flex;
@@ -565,7 +570,7 @@ footer p{
 }
 
 .review{
-  background-color:  rgb(182, 240, 230) ;
+  background-color:  rgb(132, 236, 219) ;
   color:white;
   display:flex;
   justify-content: center;
@@ -598,11 +603,11 @@ footer p{
   text-align: center;
   font-size: 18px;
   height: 40px;
-  background-color:  rgb(182, 240, 230);
+  background-color:  rgb(132, 236, 219);
 }
 
 .new{
-  background-color:  rgb(182, 240, 230)C;
+  background-color:  rgb(132, 236, 219)C;
   margin:0;
   padding:0;
   height:85vh;
@@ -611,7 +616,7 @@ footer p{
 }
 
 .green{
-  color:rgb(182,240,230);
+  color:rgb(132,236,219);
 }
 
 .img-and-price{
@@ -631,7 +636,7 @@ footer p{
 }
 
 .background-color{
-  background-color:rgb(182, 240, 230);
+  background-color:rgb(132, 236, 219);
 
 }
 
@@ -645,6 +650,7 @@ footer p{
   max-width: 500px;
   border-radius: 15%;
   padding:20px;
+  margin:10px auto;
 }
 .container-catalog{
   text-align: center;
@@ -675,13 +681,13 @@ footer p{
 
  .furny-info-single {
   width: 400px;
-  border:   rgb(182, 240, 230) 2px solid;
+  border:   rgb(132, 236, 219) 2px solid;
   margin:10px;
   text-align: center;
   background-color: #EDEFF1;
   min-height:350px;
-}
-
+  
+ }
 @media (max-width:400px){
  
   .background-pics{
@@ -816,3 +822,30 @@ footer p{
   }
 
   }
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.furny-info-single img{
+  
+}
+
+.profile-board{
+  width:100%;
+  height: 60%;;
+}
+
+#chat-furny{
+  width: 100px;
+  border:   rgb(132, 236, 219) 2px solid;
+  margin:10px;
+  text-align: center;
+  background-color: #EDEFF1;
+  min-height:100px;
+  float:right;
+  font-size: 0.8ex;
+}
+
+#black{
+  color:black;
+}
