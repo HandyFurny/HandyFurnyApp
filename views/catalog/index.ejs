@@ -3,8 +3,12 @@
         <h3>Handy Furny</h3>
     </div>
     <div>
+        <input class"search-furny-value" id="search-furny-value" type="text" placeholder="type of furny">
+        <input class="btn-search" id="search-furny-submit" type="submit" value="Search">
+    </div>
+    <div class="nav-li">
         <ul>
-            <li><a href="/catalog">Home</a></li>
+            <li class="active"><a href="/catalog">Home</a></li>
             <li><a href="/logout">Log Out</a></li>
             <li><a href="/catalog/new">New Product</a></li>
             <li><a href="/catalog/list">All Products</a> </li>
@@ -44,6 +48,7 @@
                         <img class="user-profile-pic" src="<%= items[i]._creator.profilePic %>">
                         
                         <a href="/user/<%= items[i]._creator._id %>"><%= items[i]._creator.username %></a>
+                        
                     </div>  
                 </div>
                 <% } %>
@@ -74,9 +79,7 @@
     </div>
     <div>
         <section class="search-furny">
-            <h2>What are you looking for?</h2>
-            <input id="search-furny-value" type="text" placeholder="type of furny">
-            <input id="search-furny-submit" type="submit">
+            <h2>Your search:</h2>
         </section>
         <section id="result-search-furny">
 
@@ -87,6 +90,7 @@
 </footer><!-- /footer -->
 <script type="text/javascript">
     var items = <%- JSON.stringify(items) %>;
+    var env = <%- JSON.stringify(enviroment) %>
 </script>
 
 <script

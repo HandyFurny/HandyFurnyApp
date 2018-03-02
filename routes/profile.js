@@ -22,11 +22,9 @@ router.get('/:id', ensureLoggedIn('/'), (req, res, next) => {
           .then(items =>{
             Review.find({_userSeller:req.params.id})
               .then(reviews => {
-                console.log(reviews)
                 User.findById(req.user._id)
                 .populate('favorite')
-                .then(owner => {
-                
+                .then(owner => {                
                   res.render("user/profile",{user,items,reviews, owner})
                 })
                 .catch(err => res.render('error',{message:err}))                
@@ -62,4 +60,3 @@ User.findByIdAndRemove(id)
 });
 
 module.exports = router;
-  

@@ -2,13 +2,13 @@
     <div>
         <h3>Handy Furny</h3>
     </div>
-    <div>
+    <div class="nav-li">
         <ul>
             <li><a href="/catalog">Home</a></li>
             <li><a href="/logout">Log Out</a></li>
             <li><a href="/catalog/new">New Product</a></li>
             <li><a href="/catalog/list">All Products</a> </li>
-            <li><a href="/user/<%=user._id%>">Profile</a> </li>
+            <li class="active" ><a href="/user/<%=user._id%>">Profile</a> </li>
         </ul>
     </div>
 </nav>
@@ -28,7 +28,7 @@
   
     </div>
   </div>
-
+ <!-- selling -->
 <div class="buy-sell-mylist">
 
       <h3>I'm selling: </h3>
@@ -52,10 +52,9 @@
 
       <%}%>
     </div>
-</div>   
+  <!-- favorites -->
 
-<div class="sell-buy-mylist">
-    
+<div class="buy-sell-mylist">
     <% if (owner.favorite.length >= 1) {%>
       <h3>I'm interested in: </h3>
     <% owner.favorite.forEach( favorite => {%>
@@ -68,7 +67,8 @@
                 <strong><%= favorite.title %></strong>
                 </a>
                 <p class="item-category">  <i> <%= favorite.category %></i></p>
-                <div class="price"><b>$ <%= favorite.price %>.00</b></div>  
+                <div class="price"><b>$ <%= favorite.price %>.00</b></div> 
+                <a class="chat-button" href="/chat/<%=favorite._id%>">Chat</a> 
           </div>
         </div>
     <%})%>
@@ -76,10 +76,9 @@
         <div>
         </div>
     <%}%>
-
  </div>
-   
-<div class="reviews-list">
+ <!-- review -->
+ <div class="reviews-list">
     <h3>User Reviews!</h3>
     <a class="review-user-button" href="/review/<%= user._id %>/review">Post a new review</a>
   <div>
@@ -98,4 +97,8 @@
     <%}%>
   </div>
 </div>
+</div>  
 </div>
+<footer>
+    <p>Handy Furny © | 2018</p>
+</footer><!-- /footer -->

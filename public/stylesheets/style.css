@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+a {
+  color: #57BEAC;
+}
 
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #4A4A4A;
+
 }
 
 nav{
@@ -19,19 +23,19 @@ nav{
   justify-content: space-around;
 }
 
-nav div:nth-child(2) ul {
+nav .nav-li ul {
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
   align-items:center;
 }
 
-nav div:nth-child(2) ul li {
+nav .nav-li ul li {
   margin: 20px;
   list-style:none;
 }
 
-nav div:nth-child(2) ul li a {
+nav .nav-li ul li a {
 text-decoration-line: none;
 color: #4A4A4A;
 }
@@ -182,7 +186,7 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  
+  color: white;
 }
 .container{
   min-height: 100vw;
@@ -208,7 +212,7 @@ footer p{
 /* map */
 #map {
   height: 300px;
-  width: 35vw;
+  width: 50vw;
   
  }
 
@@ -235,7 +239,7 @@ footer p{
    width: 300px;
    margin-top: 20px; 
  }
-/*+++++  +++++++*/
+
 
 
   /*IMAGEN*/
@@ -405,18 +409,6 @@ footer p{
   margin:10px;
 }
 
-/* .item-container{
-  width:20%;
-  display:flex;
-  margin:10px;
-  flex-direction: row;
-  justify-content:center;
-  align-content: center;
-  border: #EDEFF1 2px solid;
-  border-radius: 20%;
-  box-sizing: border-box;
-} */
-
 /* search-furny */
 #result-search-furny{
   display:flex;
@@ -453,7 +445,7 @@ footer p{
 .list-products, .buy-sell-mylist{
   text-align: center;
   width: 100vw;
-  min-height: 85vh;
+  /* min-height: 85vh; */
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -461,11 +453,13 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 40px;
+  
 }
 
 
-.buy-sell-mylist h3 {
+.buy-sell-mylist h3, .reviews-list h3 {
   width: 100vw;
+  border-bottom: #EDEFF1 solid 2px;
 }
 
 .user-pic-xl {
@@ -495,12 +489,14 @@ footer p{
   background-color: #F56776;
 }
 
-.edit-item-form {
+.btn-search {
   border: white solid 2px;
   border-radius: 25px;
-  width: 300px;
+  width: 100px;
+  color: white;
+  text-decoration-line: none;
   text-align: center;
-  height: 30px;
-  display: block;
-  margin: 20px;
+  font-size: 14px;
+  height: 40px;
+  background-color: #57BEAC;
 }
