@@ -8,7 +8,12 @@ const { ensureLoggedIn }  = require ('connect-ensure-login');
 const router              = express.Router();
 const {authorizeItem,checkOwnership}  = require ('../middlewares/currentUser.js')
 
-router.get('/api', ensureLoggedIn('/'), (req, res, next) =>{
+
+router.get('/new', (req, res, next) =>{
+  res.render('item/new', {types:  TYPES, user:req.user});
+});
+
+router.get('/api', (req, res, next) =>{
   Item.find({})
     .populate("_creator")
     .then(result => res.json(result))

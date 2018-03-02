@@ -1,32 +1,57 @@
 <!-- Edit Form -->
-<h1>Profile</h1>
-<a href="/logout">Log Out</a>
-<a href="/catalog">Go Home</a>
-<div class="new-user-container">
-  <h2>Edit your profile info</h2>
-    <form action="/user/<%= user._id %>" method="post" enctype="multipart/form-data">
-      <div>
-        <label for="username">Username</label>
-        <input type="text" name="username" value="<%= user.username %>">
+<nav>
+    <div>
+        <h3>Handy Furny</h3>
+    </div>
+    <div class="nav-li">
+        <ul>
+            <li><a href="/catalog">Home</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li class="active"><a href="/catalog/new">New Product</a></li>
+            <li><a href="/catalog/list">All Products</a> </li>
+         
+        </ul>
+    </div>
+</nav>
+<section class="new">
+    <div class="new-user-container">
+        <h2>Edit your profile info</h2>
+          <form action="/user/<%= user._id %>" method="post" enctype="multipart/form-data">
+          
+              <label for="username">Username :</label>
+              <input class="new-item-form input-width" type="text" name="username" value="<%= user.username %>">
+         
+            
+              <label for="email">Email :</label>
+              <input class="new-item-form input-width" type="mail" name="email" value="<%= user.email %>">
+           
+            
+              <label for="password">Password :</label>
+              <input class="new-item-form input-width" type="password" name="password">
+         
+            <i class="fa fa-search"></i>
+              <input  class="new-item-form input-width"id="search-box-user" type="text" name="where" placeholder="Search your location">
+              <input class="new-item-form input-width"id="search-box-user-lat" type="text" name="latitud" readonly>
+              <input class="new-item-form input-width"id="search-box-user-lng" type="text" name="longitud" readonly>
+            <h3>Change profile pic!</h3>
+            <img class="user-profile-pic-edit"src="<%=user.profilePic%>" alt="old pic">
+              <input class="new-item-form" type="file" name="userPic" value="/images/profile.jpg" required>
+           
+              <button class="new-item-form green input-width"type="submit">Change Profile</button>
+           
+          </form>
       </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="text" name="email" value="<%= user.email %>">
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password">
-      </div>
-        <input id="search-box-user" type="text" name="where" placeholder="Search your location">
-        <input id="search-box-user-lat" type="text" name="latitud" readonly>
-        <input id="search-box-user-lng" type="text" name="longitud" readonly>
-      <h3>Change profile pic!</h3>
-        <input type="file" name="userPic" value="/images/profile.jpg">
-      <div>
-        <button type="submit">Change Profile</button>
-      </div>
-    </form>
-</div>
+
+
+
+
+
+
+</section>
+<footer>
+    <p>Handy Furny © | 2018</p>
+</footer><!-- /footer -->
+
 <script
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB141u84aG6yCZFhfNsd4CWj7lKdHmj8-k&libraries=places">
 </script>

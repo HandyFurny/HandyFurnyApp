@@ -517,6 +517,92 @@ footer p{
   background-color: #57BEAC;
 }
 
+
+.new-item-form{
+  border: white solid 2px;
+  border-radius: 25px;
+  color:black;
+  text-decoration-line: none;
+  text-align: center;
+  font-size: 14px;
+  height: 40px;
+  margin:5px;
+}
+
+.input-width{
+  width: 300px;
+}
+
+.textarea{
+  height: 90px;
+}
+.price{
+  width:100px;
+}
+
+
+
+.new-item-container{
+  background-color: #57BEAC;
+  color:white;
+  width:400px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin:50px;
+  border:white 2px solid;
+  border-radius: 10%;
+}
+.new-item-select{
+  border: white solid 2px;
+  border-radius: 25px;
+  width: 230px;
+  color:black;
+  padding-left:50px;
+  text-decoration-line: none;
+  text-align: center;
+  font-size: 14px;
+  height: 40px;
+  margin:5px;
+}
+.btn-new{
+  margin-bottom:20px;
+  border: white solid 2px;
+  border-radius: 25px;
+  width: 300px;
+  color: white;
+  text-decoration-line: none;
+  text-align: center;
+  font-size: 18px;
+  height: 40px;
+  background-color: #57BEAC;
+}
+
+.new{
+  background-color: #57BEAC;
+  margin:0;
+  padding:0;
+  height:85vh;
+  display:flex;
+  justify-content: center;
+}
+
+.green{
+  color:#57BEAC;
+}
+
+.img-and-price{
+ display:flex;
+ flex-direction: row;
+ align-items: center;
+}
+.user-profile-pic-edit{
+  width: 40px;
+  height: 40px;
+  border: #EDEFF1 solid 2px;
+  border-radius: 20%;
+}
 .your-search {
   width: 90vw;
   margin: 0 20px;
