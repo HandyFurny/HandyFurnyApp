@@ -36,9 +36,13 @@
               <input class="new-item-form input-width"id="search-box-user-lat" type="hidden" name="latitud" readonly>
               <input class="new-item-form input-width"id="search-box-user-lng" type="hidden" name="longitud" readonly>
               <br>
-            <h3>Change profile pic!</h3> <br>
-            <img class="user-profile-pic-edit"src="<%=user.profilePic%>" alt="old pic">
-              <input class="new-item-form" type="file" name="userPic" value="/images/profile.jpg" required>
+              <div>
+                  <h3>Change your profile pic!</h3> <br>
+                  <img class="user-profile-pic-edit"src="<%=user.profilePic%>" alt="old pic">
+                    <input class="new-item-form" type="file" name="userPic" value="/images/profile.jpg" required>
+
+              </div>
+          
            
               <button class="new-item-form green input-width"type="submit">Change Profile</button>
            

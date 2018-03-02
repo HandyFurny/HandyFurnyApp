@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 a {
-  color: #57BEAC;
+  color: rgb(182,240,230);
 }
 
 html, body {
@@ -113,7 +113,7 @@ h1 {
   text-align: center;
   font-size: 18px;
   height: 40px;
-  background-color: #57BEAC;
+  background-color: rgb(182,240,230);
 }
 
 
@@ -188,7 +188,7 @@ footer p{
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
-  background: #57BEAC;
+  background: rgb(182,240,230);
 }
 .catalog section:nth-child(1) h1 {
   color: white;
@@ -289,7 +289,7 @@ footer p{
       margin: 0; 
       box-sizing: border-box;
       border-radius: 20%;
-      border:1p #57BEAC dotted ; 
+      border:1p rgb(182,240,230) dotted ; 
       padding: 10px; 
       width: 90%; 
       margin-right: .5%;
@@ -298,7 +298,7 @@ footer p{
       margin: 0; 
       box-sizing: border-box;
       width: 9%;
-       background: rgb(36, 206, 169);
+       background: rgb(182,240,230);
       border: none;
        padding: 10px; }
     #messages { 
@@ -490,6 +490,7 @@ footer p{
 }
 
 .profile-info {
+  margin-top:20px;
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -500,7 +501,7 @@ footer p{
 .btn-delete {
   border: white solid 2px;
   border-radius: 25px;
-  width: 200px;
+  width: 40px;
   color: white;
   text-decoration-line: none;
   text-align: center;
@@ -518,7 +519,7 @@ footer p{
   text-align: center;
   font-size: 14px;
   height: 40px;
-  background-color: #57BEAC;
+  background-color: rgb(182,240,230);
 }
 
 
@@ -551,7 +552,7 @@ footer p{
 
 .new-item-container{
   background-color:  rgb(182, 240, 230) ;
-  color:white;
+  color:white ;
   min-height:400px;
   display:flex;
   justify-content: center;
@@ -561,6 +562,19 @@ footer p{
   border:white 2px solid;
   border-radius: 10%;
 }
+
+.review{
+  background-color:  rgb(182, 240, 230) ;
+  color:white;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border:white 2px solid;
+  border-radius: 10%;
+  margin:50px auto;
+}
+
 .new-item-select{
   border: white solid 2px;
   border-radius: 25px;
@@ -583,11 +597,11 @@ footer p{
   text-align: center;
   font-size: 18px;
   height: 40px;
-  background-color: #57BEAC;
+  background-color:  rgb(182, 240, 230);
 }
 
 .new{
-  background-color: #57BEAC;
+  background-color:  rgb(182, 240, 230)C;
   margin:0;
   padding:0;
   height:85vh;
@@ -596,7 +610,7 @@ footer p{
 }
 
 .green{
-  color:#57BEAC;
+  color:rgb(182,240,230);
 }
 
 .img-and-price{
@@ -617,10 +631,11 @@ footer p{
 
 .background-color{
   background-color:rgb(182, 240, 230);
+
 }
 
 .edit-profile-container{
-  background-color:rgb(182, 240, 230);
+  background-color:white;
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -628,6 +643,7 @@ footer p{
   align-items: center;
   max-width: 500px;
   border-radius: 15%;
+  padding:20px;
 }
 .container-catalog{
   text-align: center;
@@ -642,3 +658,26 @@ footer p{
   background: url(../images/background-wood.jpg) no-repeat center center;
   background-size: cover;
  }
+
+
+ .main-title{
+   text-align: left;
+   font-size: 5ev;
+ }
+
+ .single-view{
+  height: 85vh;
+ }
+
+ .center-text{
+   text-align: center;  
+ }
+
+ .furny-info-single {
+  width: 400px;
+  border:   rgb(182, 240, 230) 2px solid;
+  margin:10px;
+  text-align: center;
+  background-color: #EDEFF1;
+  min-height:350px;
+}
