@@ -12,12 +12,8 @@ document.getElementById('search-furny-submit').onclick = function(){
                     }
                 })
             })
-<<<<<<< HEAD
-            var content = ''
-=======
             console.log(arrChar)
             var content = '<div class="your-search"><h2 class="your-search">Your search:</h2></div>'
->>>>>>> 96633441b38a5855b7a57c66b468036fc0f1cdba
             arrChar.forEach(char => { 
                 content += `
                 <div class="furny-info">

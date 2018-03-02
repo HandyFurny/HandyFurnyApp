@@ -13,33 +13,44 @@
         </ul>
     </div>
 </nav>
-<section class="new">
-    <div class="new-user-container">
+<section class="new background">
+    <div class="new-item-container">
         <h2>Edit your profile info</h2>
-          <form action="/user/<%= user._id %>" method="post" enctype="multipart/form-data">
-          
-              <label for="username">Username :</label>
-              <input class="new-item-form input-width" type="text" name="username" value="<%= user.username %>">
+
+        <div class="edit-profile-container">
+
+            <form class="edit-profile-container"action="/user/<%= user._id %>" method="post" enctype="multipart/form-data"> 
+              <input placeholder="Username "class="new-item-form input-width" type="text" name="username" value="<%= user.username %>">
          
+            <br>
             
-              <label for="email">Email :</label>
-              <input class="new-item-form input-width" type="mail" name="email" value="<%= user.email %>">
+              <input placeholder="Your email" class="new-item-form input-width" type="mail" name="email" value="<%= user.email %>">
            
+            <br>
             
-              <label for="password">Password :</label>
-              <input class="new-item-form input-width" type="password" name="password">
-         
+              <input placeholder="Your password"class="new-item-form input-width" type="password" name="password">
+            <br>
+
             <i class="fa fa-search"></i>
               <input  class="new-item-form input-width"id="search-box-user" type="text" name="where" placeholder="Search your location">
-              <input class="new-item-form input-width"id="search-box-user-lat" type="text" name="latitud" readonly>
-              <input class="new-item-form input-width"id="search-box-user-lng" type="text" name="longitud" readonly>
-            <h3>Change profile pic!</h3>
+              <input class="new-item-form input-width"id="search-box-user-lat" type="hidden" name="latitud" readonly>
+              <input class="new-item-form input-width"id="search-box-user-lng" type="hidden" name="longitud" readonly>
+              <br>
+            <h3>Change profile pic!</h3> <br>
             <img class="user-profile-pic-edit"src="<%=user.profilePic%>" alt="old pic">
               <input class="new-item-form" type="file" name="userPic" value="/images/profile.jpg" required>
            
               <button class="new-item-form green input-width"type="submit">Change Profile</button>
            
           </form>
+
+
+
+
+
+
+        </div>
+          
       </div>
 
 

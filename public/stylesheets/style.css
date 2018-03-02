@@ -12,6 +12,8 @@ html, body {
 
 }
 
+
+
 nav{
   width: 100vw;
   box-sizing: border-box;
@@ -20,7 +22,7 @@ nav{
   flex-direction:row;
   flex-wrap:wrap;
   align-items:center; /*baseline*/
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 nav .nav-li ul {
@@ -434,9 +436,11 @@ footer p{
 
 .furny-info {
   width: 250px;
-  border: #EDEFF1 2px solid;
+  border:   rgb(182, 240, 230) 2px solid;
   margin:10px;
   text-align: center;
+  background-color: #EDEFF1;
+  min-height:350px;
 }
 
 .resize {
@@ -536,12 +540,15 @@ footer p{
   width:100px;
 }
 
+.background{
+  background-image: url("/images/backgroundwood.jpg");
+}
 
 
 .new-item-container{
-  background-color: #57BEAC;
+  background-color:  rgb(182, 240, 230) ;
   color:white;
-  width:400px;
+  min-height:400px;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -602,4 +609,19 @@ footer p{
 .your-search {
   width: 90vw;
   margin: 0 20px;
+}
+
+.background-color{
+  background-color:rgb(182, 240, 230);
+}
+
+.edit-profile-container{
+  background-color:rgb(182, 240, 230);
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  border-radius: 15%;
 }
