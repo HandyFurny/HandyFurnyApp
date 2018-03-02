@@ -70,6 +70,7 @@ color: #4A4A4A;
   box-sizing: border-box;
   justify-content: center;
   background-color: rgba(0,0,0,.5);
+  
   color: white;
 }
 
@@ -642,3 +643,53 @@ footer p{
   background: url(../images/background-wood.jpg) no-repeat center center;
   background-size: cover;
  }
+
+
+
+ @media (max-width:400px){
+ 
+  .background-pics{
+    visibility: hidden;
+  }
+  .background-header {
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-items:center;
+    box-sizing: border-box;
+    justify-content: center;
+    background: rgba(0,0,0,.5) url("../images/bmovil.jpg") no-repeat center center;
+    background-size: cover;
+    color: white;
+  }
+  nav {
+    font-size: 10px;
+    padding: 0 5px;
+  }
+  .container-header-about p{
+    width: 70vw;
+  }
+  .catalog section:nth-child(1){
+    width: 100vw;
+    margin: 0;
+    display: block;
+  }
+  .catalog{
+    margin:0;
+  }
+  .container-catalog{
+    padding: 0;
+  }
+  .container-catalog section:nth-child(1){
+   margin: 40px 0;
+   padding: 0;
+  }
+
+  .container-catalog section:nth-child(2){
+    width: 100%;
+  }
+  }
