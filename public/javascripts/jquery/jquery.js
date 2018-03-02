@@ -14,4 +14,11 @@ $(document).ready(function() {
         }
     });
 
+    $('#nav-icon').on('click',function(){
+        console.log("entra")
+        $( ".nav-li").toggleClass("display")
+        
+        });
+        
+
 });

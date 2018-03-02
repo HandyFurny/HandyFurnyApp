@@ -15,14 +15,17 @@ html, body {
 nav{
   width: 100vw;
   box-sizing: border-box;
-  height: 7vh;
+  
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
   align-items:center; /*baseline*/
   justify-content: space-between;
+  padding: 0 20px;
 }
-
+.nav-icon{
+  display: none;
+}
 nav .nav-li ul {
   display: flex;
   flex-direction:row;
@@ -253,7 +256,7 @@ footer p{
 
  .nav-map form input {
    width: 300px;
-   margin-top: 20px;
+
   
  }
 
@@ -496,7 +499,7 @@ footer p{
 }
 
 .profile-info {
-  margin-top:20px;
+
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -686,8 +689,31 @@ footer p{
   text-align: center;
   background-color: #EDEFF1;
   min-height:350px;
-  
  }
+ .furny-info-single img{
+  
+}
+
+.profile-board{
+  width:100%;
+  height: 60%;;
+}
+
+#chat-furny{
+  width: 100px;
+  border:   rgb(132, 236, 219) 2px solid;
+  margin:10px;
+  text-align: center;
+  background-color: #EDEFF1;
+  min-height:100px;
+  float:right;
+  font-size: 0.8ex;
+}
+
+#black{
+  color:black;
+}
+
 @media (max-width:400px){
  
   .background-pics{
@@ -712,6 +738,10 @@ footer p{
     font-size: 10px;
     padding: 0 5px;
   }
+  nav h3{
+    font-size: 20px;
+    padding: 0 5px;
+  }
   .container-header-about p{
     width: 70vw;
   }
@@ -725,9 +755,26 @@ footer p{
   .container-catalog section:nth-child(2){
     width: 100vw;
   }
-  nav{
-    padding: 10px;
+  .nav-icon{
+    display: block;
+    margin: 0 10px;
+    font-size: 20px;
   }
+ 
+
+  .nav-li{
+    width: 100vw;
+    display: none;
+  }
+
+  .display {
+    display: block;
+  }
+  nav .nav-li ul li{
+    width: 100vw;
+    margin: 5px 0;
+  }
+
   nav div {
     display: block;
 
@@ -747,15 +794,13 @@ footer p{
     margin: 0;
   }
   .catalog section:nth-child(1){
-    margin-top: 150px;
+    margin-top: 5px;
     width: 90vw;
   }
   .catalog  li{
     display: block;
   }
-  .search-furny {
-    margin-top: 150px;
-  }
+ 
   .catalog section:nth-child(2) h2 {
     
     width: 100vw;
@@ -768,7 +813,7 @@ footer p{
     padding: 5px;
   }
   .new-item-container{
-    margin-top: 100px;
+    margin: 0;
     width: 90vw;
   }
   .new-item-container{
@@ -791,9 +836,7 @@ footer p{
     right:0;
     height:30px;
   }
-  .container {
-    margin-top: 150px;
-  }
+ 
   .btn{
     margin: 5px;
     padding: 5px;
@@ -822,30 +865,7 @@ footer p{
   }
 
   }
-  display:flex;
+  /* display:flex;
   justify-content: flex-start;
   align-items: flex-start;
-}
-.furny-info-single img{
-  
-}
-
-.profile-board{
-  width:100%;
-  height: 60%;;
-}
-
-#chat-furny{
-  width: 100px;
-  border:   rgb(132, 236, 219) 2px solid;
-  margin:10px;
-  text-align: center;
-  background-color: #EDEFF1;
-  min-height:100px;
-  float:right;
-  font-size: 0.8ex;
-}
-
-#black{
-  color:black;
-}
+} */
