@@ -1,4 +1,4 @@
-//const config = require ("./config")
+require('dotenv').config()
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -19,9 +19,8 @@ const profile      = require ("./routes/profile.js");
 const chat         = require ("./routes/chat.js");
 const review       = require ("./routes/review.js");
 
-mongoose.connect('mongodb://localhost/handyfurniture')
-  .then(console.log(`connected!!`));
-
+mongoose.connect(process.env.mongoDB)
+  .then(console.log(`connected to ${process.env.mongoDB}`));
 const app = express();
 
 // view engine setup
