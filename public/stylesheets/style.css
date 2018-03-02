@@ -209,7 +209,7 @@ footer p{
 .catalog section:nth-child(2) {
   width: 20vw;
   background: #F4F5F7;
-  min-height: 500px;
+  height: 500px;
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
@@ -757,6 +757,7 @@ footer p{
 
   .container-catalog section:nth-child(2){
     width: 100vw;
+
   }
   .nav-icon{
     display: block;
@@ -804,9 +805,11 @@ footer p{
     display: block;
   }
  
+  
   .catalog section:nth-child(2) h2 {
-    
+   
     width: 100vw;
+    
   }
   .background {
     background: white;
