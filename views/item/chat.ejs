@@ -17,15 +17,16 @@ y la información del seller y el chat y la lista de los otros items que quiero 
 <h2>CHAT</h2>
 
 
-<div class="chat background">
+<div class="chat">
 
-    <div class="item-chat-container">
+    <div class="furny-info" id="chat-furny">
         
           <div>
             <img class="item-img-chat" src="<%= item.itemPic %>">
           </div>
           <div>
-            <h2> <%=item.title%> $<%=item.price %></h2>
+            
+            <h2> <a id="black" href="/catalog/<%= item._id %>"> <%=item.title%></a> $<%=item.price %></h2>
             <span class="item-category"><%= item.category %></span>
             <p> Description: <br> <%= item.description%></p>
           </div>
@@ -33,13 +34,11 @@ y la información del seller y el chat y la lista de los otros items que quiero 
     </div>
 
    <div class="chat-form">
-    
       <ul id="messages">
         <% if (doc!=undefined){%>
            <% doc.messages.forEach(m=>{%>
              <li><%=m%></li>
            <%})%>
-        
         <%}else {%>
           <li></li>
           <%}%>
@@ -47,13 +46,7 @@ y la información del seller y el chat y la lista de los otros items que quiero 
       <form class="form-chat"action="">
         <input class="form-chat-input"id="m" autocomplete="off" /><button class="form-chat-button">Send</button>
       </form>
-    
-    
   </div>
-
-
-
-
 </div>
 
 

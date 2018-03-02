@@ -15,32 +15,35 @@
 
 <section>
 
-<div class="container background">
-  <div class="profile-info">
-    <div class="edit-profile-container">
-        <img class="user-pic-xl" src="<%= user.profilePic %>">
-        <div>
-            <h2><%= user.username %></h2>
-            <p><%= user.email%></p>
-            <!-- <p>Current direccion: [<%= user.location.coordinates %>]</p> -->
-            <div class="direction-user">
-                <p>Direction: </p>
-                <div id="map-dir"></div>
-            </div>
-            <% if (user.username === owner.username) {  %> 
-            <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
-            
-            <form action="/user/<%= user._id %>/delete" method="POST">
-            
-              <button class="btn-delete" type="submit">   <i class=“far fa-trash-alt”>X</i></button>
-            </form>
-            <% }%>
-        </div>
+<div class="container ">
+  <div class="background profile-board">
+
+      <div class="profile-info">
+          <div class="edit-profile-container">
+              <img class="user-pic-xl" src="<%= user.profilePic %>">
+              <div>
+                  <h2><%= user.username %></h2>
+                  <p><%= user.email%></p>
+                  <!-- <p>Current direccion: [<%= user.location.coordinates %>]</p> -->
+                  <div class="direction-user">
+                      <p>Direction: </p>
+                      <div id="map-dir"></div>
+                  </div>
+                  <% if (user.username === owner.username) {  %> 
+                  <a class="btn" href="/user/<%= user._id %>/edit">Edit your profile</a>
+                  
+                  <form action="/user/<%= user._id %>/delete" method="POST">
+                  
+                    <button class="btn-delete" type="submit">   <i class=“far fa-trash-alt”>X</i></button>
+                  </form>
+                  <% }%>
+              </div>
+              
+          </div>
         
-    </div>
-    
-  
+        </div>
   </div>
+
  <!-- selling -->
 <div class="buy-sell-mylist">
 
