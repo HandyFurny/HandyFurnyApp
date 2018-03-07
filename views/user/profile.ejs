@@ -37,7 +37,7 @@
                   
                   <form action="/user/<%= user._id %>/delete" method="POST">
                   
-                    <button class="btn-delete" type="submit">   <i class=“far fa-trash-alt”>X</i></button>
+                    <button class="btn-delete" type="submit"><i class="far fa-trash-alt"></i></button>
                   </form>
                   <% }%>
               </div>
@@ -58,11 +58,11 @@
           <img class="resize item-image" src="<%= item.itemPic %>">
         </div>
         <div>
-            <a class="title" href="/catalog/<%= item._id %>">
-              <strong><%= item.title %></strong>
+            <a class="item-category" href="/catalog/<%= item._id %>">
+              <p><%= item.title %></p>
               </a>
               <p class="item-category">  <i> <%= item.category %></i></p>
-              <div class="price"><b>$ <%= item.price %>.00</b></div>  
+              <div class="item-category"><p>$ <%= item.price %>.00</p></div>  
         </div>
       </div>
       <%}) %> 
@@ -82,11 +82,11 @@
             <img class="resize item-image" src="<%= favorite.itemPic  %>">
           </div>
           <div>
-              <a class="title" href="/catalog/<%= favorite._id %>">
-                <strong><%= favorite.title %></strong>
+              <a class="item-category" href="/catalog/<%= favorite._id %>">
+                <p><%= favorite.title %></p>
                 </a>
                 <p class="item-category">  <i> <%= favorite.category %></i></p>
-                <div class="price"><b>$ <%= favorite.price %>.00</b></div> 
+                <div class="item-category"><p>$ <%= favorite.price %>.00</p></div> 
                 <a class="chat-button" href="/chat/<%=favorite._id%>">Chat</a> 
           </div>
         </div>

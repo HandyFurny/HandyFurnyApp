@@ -3,7 +3,7 @@ function markItems(map){
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<a href="/catalog/'+ item._id +'"><h1 id="firstHeading" class="firstHeading">' + item.title + '</h1>' +
+            '<a href="/catalog/'+ item._id +'"><h3 id="firstHeading">' + item.title + '</h3>' +
             '<div id="bodyContent"></a>'+
             '<p><b>$'+ item.price +'.00</b></p>'+
             '<p>Seller: <a href="/user/'+ item._creator._id + '">'+ item._creator.username

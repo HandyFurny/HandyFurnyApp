@@ -681,6 +681,20 @@ footer p{
   height: 85vh;
  }
 
+ .btn-signup {
+  margin: 0 auto;
+  padding: 5px;
+  height: 35px;
+  border: white solid 2px;
+  border-radius: 25px;
+  width: 200px;
+  color: white;
+  text-decoration-line: none;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  background-color: rgb(132, 236, 219);
+}
  .center-text{
    text-align: center;  
  }
